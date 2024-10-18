@@ -109,6 +109,16 @@ class TheApi:
             return results['result']
 
     @staticmethod
+    def gemini(query):
+        response = requests.get(
+            f"https://chatwithai.codesearch.workers.dev/?chat={query}&model=gpt-4o"
+        )
+        if response.status_code == 200:
+            results = response.json()
+            return results['result']
+
+
+    @staticmethod
     def get_advice():
         try:
             results = requests.get("https://api.adviceslip.com/advice").json()["slip"][
