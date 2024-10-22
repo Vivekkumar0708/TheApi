@@ -111,7 +111,7 @@ class TheApi:
     @staticmethod
     def gemini(query):
         response = requests.get(
-            f"https://chatwithai.codesearch.workers.dev/?chat={query}&model=gpt-4o"
+            f"https://chatwithai.codesearch.workers.dev/?chat={query}&model=gemini-pro"
         )
         if response.status_code == 200:
             results = response.json()
