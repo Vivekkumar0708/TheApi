@@ -82,7 +82,7 @@ print(result)
 ```
 
 ```text
-['https://assets.vg247.com/current/2016/07/pokemon_sun_an_moon_rockruff.jpg', 'http://www.animextremist.com/imagenes/pokemon/pokemon97.jpg', 'https://www.pokemon.com/static-assets/app/static3/img/og-default-image.jpeg']
+['https://static3.cbrimages.com/wordpress/wp-content/uploads/2019/09/Pokemon-Ash-Feature-Image-1.jpg', 'https://townsquare.media/site/622/files/2016/08/poke-feat.jpg?w=1200&amp;h=0&amp;zc=1&amp;s=0&amp;a=t&amp;q=89', 'http://www.animextremist.com/imagenes/pokemon/pokemon103.jpg']
 ```
 
 ### blackpink
@@ -121,7 +121,7 @@ print(result)
 ```
 
 ```text
-https://cdn2.thecatapi.com/images/7cm.jpg
+https://cdn2.thecatapi.com/images/cnh.jpg
 ```
 
 ### chatgpt
@@ -134,11 +134,11 @@ print(result)
 ```
 
 ```text
-Sure! Pokémon is a popular franchise created by Satoshi Tajiri and Ken Sugimori, and it was first introduced by Nintendo, Game Freak, and Creatures in 1996. The franchise includes video games, trading card games, an animated television series, movies, merchandise, and more.
+Sure! Pokémon is a popular franchise created by Satoshi Tajiri and Ken Sugimori, which began with the release of Pokémon Red and Green in Japan in 1996. The franchise includes video games, trading card games, an animated television series, movies, merchandise, and more. 
 
-In the Pokémon world, trainers capture and train creatures known as Pokémon to battle each other. Each Pokémon has its own unique abilities, types, and stats. The goal for many trainers is to become a Pokémon Master by defeating Gym Leaders, competing in Pokémon Leagues, and completing the Pokédex, which is a comprehensive Pokémon encyclopedia.
+In the Pokémon universe, trainers catch and train creatures called Pokémon to battle each other. Each Pokémon has its own unique abilities, types, and characteristics. The goal for many trainers is to become Pokémon Champions by defeating Gym Leaders and the Elite Four.
 
-If you have specific questions about Pokémon, such as game mechanics, Pokémon types, strategies, or anything else, feel free to ask!
+If you have specific questions about Pokémon, whether it's about games, types, strategies, or anything else, feel free to ask!
 ```
 
 ### dog
@@ -151,7 +151,7 @@ print(result)
 ```
 
 ```text
-https://random.dog/fb6ff563-8d84-4244-a3b1-24cafe220a35.webm
+https://random.dog/205a2763-6102-4b9c-9c8f-f944f6900a22.jpg
 ```
 
 ### fox
@@ -164,7 +164,7 @@ print(result)
 ```
 
 ```text
-https://randomfox.ca/?i=29
+https://randomfox.ca/?i=85
 ```
 
 ### gemini
@@ -177,11 +177,15 @@ print(result)
 ```
 
 ```text
-Sure! Pokémon is a popular franchise created by Satoshi Tajiri and Ken Sugimori, and it is managed by The Pokémon Company, which is a collaboration between Nintendo, Game Freak, and Creatures Inc. The franchise began with the release of Pokémon Red and Green in Japan in 1996 and has since expanded to include video games, trading card games, an animated television series, movies, merchandise, and more.
+Please be more specific! What about Pokemon are you interested in? For example, you could ask me:
 
-In the Pokémon world, trainers catch and train creatures called Pokémon, which they use to battle each other. Each Pokémon has its own unique abilities, types, and characteristics. The goal for many trainers is to become Pokémon Champions by defeating Gym Leaders and the Elite Four, as well as completing their Pokédex, an in-game encyclopedia of Pokémon species.
+* **For a specific Pokemon:** "Tell me about Pikachu."
+* **For a game recommendation:** "What's the best Pokemon game for beginners?"
+* **For trivia:** "What type of Pokemon is Charizard?"
+* **For creative prompts:**  "Give me an idea for a new Pokemon." 
 
-If you have specific questions about Pokémon, whether it's about games, characters, types, or strategies, feel free to ask!
+Let me know, and I'll be happy to help! 
+
 ```
 
 ### gen_hashtag
@@ -207,7 +211,7 @@ print(result)
 ```
 
 ```text
-Don't assume anything is possible or impossible until you've asked the people who will be doing the work.
+Don't burn bridges.
 ```
 
 ### get_hindi_jokes
@@ -220,7 +224,7 @@ print(result)
 ```
 
 ```text
-कागज़ पे लिखी गजल बकरी चबा गयी चर्चा पूरे गांव में हुई की बकरी शेर खा गयी 😆🤣😋😉
+हाल चाल पूछने का वक्त गया इंसान online दिख जाये तो समझिये सब ठीक है भगवान सब को online रखे😆🤣😋😉 
 ```
 
 ### get_jokes
@@ -233,9 +237,7 @@ print(result)
 ```
 
 ```text
-Two reasons I don't give money to homeless people.
-1) They are going to spend it all on drugs and alcohol
-2) I am going to spend it all on drugs and alcohol.
+My parents raised me as an only child, which really annoyed my younger brother.
 ```
 
 ### get_uselessfact
@@ -248,7 +250,7 @@ print(result)
 ```
 
 ```text
-Rhode Island is the only state which the hammer throw is a legal high school sport.
+The only nation whose name begins with an "A", but doesn`t end in an "A" is Afghanistan.
 ```
 
 ### github_search
@@ -261,7 +263,7 @@ print(result)
 ```
 
 ```text
-[{'name': 'PokemonGo-Map', 'full_name': 'AHAAAAAAA/PokemonGo-Map', 'description': '🌏 Live visualization of all the pokemon in your area... and more! (shutdown)', 'url': 'https://github.com/AHAAAAAAA/PokemonGo-Map', 'language': None, 'stargazers_count': 7530, 'forks_count': 2815}, {'name': 'pokemon-showdown', 'full_name': 'smogon/pokemon-showdown', 'description': 'Pokémon battle simulator.', 'url': 'https://github.com/smogon/pokemon-showdown', 'language': 'TypeScript', 'stargazers_count': 4769, 'forks_count': 2784}, {'name': 'PokemonGo-Bot', 'full_name': 'PokemonGoF/PokemonGo-Bot', 'description': 'The Pokemon Go Bot, baking with community.', 'url': 'https://github.com/PokemonGoF/PokemonGo-Bot', 'language': 'Python', 'stargazers_count': 3864, 'forks_count': 1542}]
+[{'name': 'PokemonGo-Map', 'full_name': 'AHAAAAAAA/PokemonGo-Map', 'description': '🌏 Live visualization of all the pokemon in your area... and more! (shutdown)', 'url': 'https://github.com/AHAAAAAAA/PokemonGo-Map', 'language': None, 'stargazers_count': 7529, 'forks_count': 2815}, {'name': 'pokemon-showdown', 'full_name': 'smogon/pokemon-showdown', 'description': 'Pokémon battle simulator.', 'url': 'https://github.com/smogon/pokemon-showdown', 'language': 'TypeScript', 'stargazers_count': 4771, 'forks_count': 2785}, {'name': 'PokemonGo-Bot', 'full_name': 'PokemonGoF/PokemonGo-Bot', 'description': 'The Pokemon Go Bot, baking with community.', 'url': 'https://github.com/PokemonGoF/PokemonGo-Bot', 'language': 'Python', 'stargazers_count': 3866, 'forks_count': 1542}]
 ```
 
 ### hindi_quote
@@ -274,7 +276,7 @@ print(result)
 ```
 
 ```text
-ऐसा नहीं है कि अब तेरी जूस्तजू नहीं रहीं, बस टूट-टूट कर बिखरने की हिम्मत नहीं रही।
+झुकना बहुत अच्छी बात है नम्रता कि पहचान है.. पर आत्मसम्मान खोकर झुकना खुद को खोने जैसा है
 ```
 
 ### meme
@@ -287,7 +289,7 @@ print(result)
 ```
 
 ```text
-https://preview.redd.it/0aq88vl81gvd1.png?width=320&crop=smart&auto=webp&s=020a5d71200bf03f220b5aeff91480868fbe54dc
+https://preview.redd.it/y37f2xqcmsvd1.png?width=640&crop=smart&auto=webp&s=5b23c8218330f0e2c94909678d797e8556e547a7
 ```
 
 ### morse_code
@@ -326,9 +328,9 @@ print(result)
 ```
 
 ```text
-Never find fault with the absent.
+A single rose can be my garden... a single friend, my world.
 
-author - Alexander Pope
+author - Leo Buscaglia
 ```
 
 ### randomword
@@ -341,7 +343,7 @@ print(result)
 ```
 
 ```text
-appositely
+brewskies
 ```
 
 ### riddle
@@ -354,7 +356,7 @@ print(result)
 ```
 
 ```text
-{'riddle': 'Three playing cards in a row. Can you name them with these clues? There is a two to the right of a king. A diamond will be found to the left of a spade. An ace is to the left of a heart. A heart is to the left of a spade. Now, identify all three cards.', 'answer': 'Ace of Diamonds, King of Hearts, Two of Spades'}
+{'riddle': 'What has roots as nobody sees.  Is taller than trees.  Up, up it goes.  And yet never grows?', 'answer': "It's Majestic  A Mountain"}
 ```
 
 ### stackoverflow_search
@@ -367,7 +369,7 @@ print(result)
 ```
 
 ```text
-[{'tags': ['ios', 'flutter', 'dart'], 'owner': {'account_id': 19921816, 'reputation': 3, 'user_id': 14597469, 'user_type': 'registered', 'profile_image': 'https://lh6.googleusercontent.com/-aT6u2l_JT94/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclcxb94zp_q0Q2R8DQN7b6X3kgo6w/s96-c/photo.jpg?sz=256', 'display_name': 'Senem Sedef', 'link': 'https://stackoverflow.com/users/14597469/senem-sedef'}, 'is_answered': False, 'view_count': 117, 'answer_count': 0, 'score': 0, 'last_activity_date': 1701515081, 'creation_date': 1622231772, 'last_edit_date': 1701515081, 'question_id': 67744802, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/67744802/the-getter-pokemon-was-called-on-null-receiver-null-tried-calling-pokemon', 'title': 'The getter &#39;pokemon&#39; was called on null. Receiver: null Tried calling: pokemon'}, {'tags': ['reactjs', 'random', 'axios'], 'owner': {'account_id': 17931576, 'reputation': 1, 'user_id': 13028884, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/7ebcdd2f784bca5dc54a1a0e17354f86?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'GieGie', 'link': 'https://stackoverflow.com/users/13028884/giegie'}, 'is_answered': False, 'view_count': 1935, 'answer_count': 2, 'score': 0, 'last_activity_date': 1652730812, 'creation_date': 1642222168, 'last_edit_date': 1642223800, 'question_id': 70718940, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/70718940/pokemon-api-request-generate-5-pok%c3%a9mon-at-a-time', 'title': 'Pokemon API request generate 5 Pok&#233;mon at a time'}, {'tags': ['java'], 'owner': {'account_id': 919945, 'reputation': 43, 'user_id': 951797, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/26b06d5d95992fa3780383abe5f49a3d?s=256&d=identicon&r=PG', 'display_name': 'Brian', 'link': 'https://stackoverflow.com/users/951797/brian'}, 'is_answered': True, 'view_count': 32593, 'accepted_answer_id': 7942409, 'answer_count': 3, 'score': 3, 'last_activity_date': 1577442848, 'creation_date': 1319931614, 'question_id': 7942384, 'content_license': 'CC BY-SA 3.0', 'link': 'https://stackoverflow.com/questions/7942384/simple-java-pokemon-fight-simulator', 'title': 'Simple Java Pokemon Fight Simulator'}]
+[{'tags': ['ios', 'flutter', 'dart'], 'owner': {'account_id': 19921816, 'reputation': 3, 'user_id': 14597469, 'user_type': 'registered', 'profile_image': 'https://lh6.googleusercontent.com/-aT6u2l_JT94/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclcxb94zp_q0Q2R8DQN7b6X3kgo6w/s96-c/photo.jpg?sz=256', 'display_name': 'Senem Sedef', 'link': 'https://stackoverflow.com/users/14597469/senem-sedef'}, 'is_answered': False, 'view_count': 117, 'answer_count': 0, 'score': 0, 'last_activity_date': 1701515081, 'creation_date': 1622231772, 'last_edit_date': 1701515081, 'question_id': 67744802, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/67744802/the-getter-pokemon-was-called-on-null-receiver-null-tried-calling-pokemon', 'title': 'The getter &#39;pokemon&#39; was called on null. Receiver: null Tried calling: pokemon'}, {'tags': ['reactjs', 'random', 'axios'], 'owner': {'account_id': 17931576, 'reputation': 1, 'user_id': 13028884, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/7ebcdd2f784bca5dc54a1a0e17354f86?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'GieGie', 'link': 'https://stackoverflow.com/users/13028884/giegie'}, 'is_answered': False, 'view_count': 1938, 'answer_count': 2, 'score': 0, 'last_activity_date': 1652730812, 'creation_date': 1642222168, 'last_edit_date': 1642223800, 'question_id': 70718940, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/70718940/pokemon-api-request-generate-5-pok%c3%a9mon-at-a-time', 'title': 'Pokemon API request generate 5 Pok&#233;mon at a time'}, {'tags': ['java'], 'owner': {'account_id': 919945, 'reputation': 43, 'user_id': 951797, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/26b06d5d95992fa3780383abe5f49a3d?s=256&d=identicon&r=PG', 'display_name': 'Brian', 'link': 'https://stackoverflow.com/users/951797/brian'}, 'is_answered': True, 'view_count': 32597, 'accepted_answer_id': 7942409, 'answer_count': 3, 'score': 3, 'last_activity_date': 1577442848, 'creation_date': 1319931614, 'question_id': 7942384, 'content_license': 'CC BY-SA 3.0', 'link': 'https://stackoverflow.com/questions/7942384/simple-java-pokemon-fight-simulator', 'title': 'Simple Java Pokemon Fight Simulator'}]
 ```
 
 ### upload_image
@@ -406,7 +408,7 @@ print(result)
 ```
 
 ```text
-['telamon', 'paroxysm', 'battleground', 'neocortical', 'footstone']
+['prostatism', 'congressionally', 'insheathing', 'demotes', 'garderobe']
 ```
 
 ### write
