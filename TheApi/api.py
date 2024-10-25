@@ -72,7 +72,7 @@ class TheApi:
         except requests.exceptions.RequestException as e:
             raise RequestError(f"Request failed: {str(e)}")
 
-def quote(self) -> str:
+    def quote(self) -> str:
         """Fetch a random quote."""
         data = self._make_request(self.base_urls['quote'])
         return f"{data['content']}\n\nauthor - {data['author']}"
