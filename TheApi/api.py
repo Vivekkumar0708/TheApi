@@ -26,35 +26,24 @@ class TheApi:
             'random_word': "https://random-word-api.herokuapp.com/word",
             'image': "https://graph.org/file/1f8d00177ac2429b101b9.jpg",
             'font': "https://github.com/google/fonts/raw/main/ofl/poetsenone/PoetsenOne-Regular.ttf",
-            'upload': "https://envs.sh"
+            'upload': "https://envs.sh",
+            'chatgpt': "https://chatwithai.codesearch.workers.dev/",
+            'advice': "https://api.adviceslip.com/advice",
+            'jokes': "https://v2.jokeapi.dev/joke/Any",
+            'hindi_jokes': "https://hindi-jokes-api.onrender.com/jokes?api_key=93eeccc9d663115eba73839b3cd9",
+            'useless_fact': "https://uselessfacts.jsph.pl/api/v2/facts/random",
+            'hashtag_generator': "https://all-hashtag.com/library/contents/ajax_generator.php"
         }
 
     def _make_request(
         self, 
         url: str, 
         method: str = 'GET', 
-        params: Optional[Dict] = None, 
-        data: Optional[Dict] = None,
-        files: Optional[Dict] = None,
-        headers: Optional[Dict] = None
-    ) -> Any:
-        """
-        Make HTTP requests with error handling.
-
-        Args:
-            url: The URL to make the request to
-            method: HTTP method (GET, POST, etc.)
-            params: URL parameters
-            data: Request body data
-            files: Files to upload
-            headers: Request headers
-
-        Returns:
-            Response data (JSON or text based on content)
-
-        Raises:
-            RequestError: If the request fails
-        """
+        params: dict = None, 
+        data: dict = None,
+        files: dict = None,
+        headers: dict = None
+    ) -> Union[dict, str]:
         try:
             response = self.session.request(
                 method=method,
@@ -65,13 +54,51 @@ class TheApi:
                 headers=headers
             )
             response.raise_for_status()
-
-            if 'application/json' in response.headers.get('Content-Type', ''):
-                return response.json()
-            return response.content
-
+            return response.json() if 'application/json' in response.headers.get('Content-Type', '') else response.text
         except requests.exceptions.RequestException as e:
             raise RequestError(f"Request failed: {str(e)}")
+
+    def chatgpt(self, query):
+        url = f"{self.base_urls['chatgpt']}?chat={query}&model=gpt-4o"
+        response = self._make_request(url)
+        return response['result']
+
+    def get_advice(self):
+        response = self._make_request(self.base_urls['advice'])
+        return response["slip"]["advice"]
+
+    def get_jokes(self, amount=1):
+        url = self.base_urls['jokes']
+        params = {"type": "single", "amount": amount}
+        response = self._make_request(url, params=params)
+
+        if amount == 1:
+            return response["joke"]
+        else:
+            jokes = [joke["joke"] for joke in response["jokes"]]
+            return "\n\n".join(f"{i + 1}. {joke}" for i, joke in enumerate(jokes))
+
+    def get_hindi_jokes(self):
+        response = self._make_request(self.base_urls['hindi_jokes'])
+        return response["jokeContent"] if response["status"] else "No joke found."
+
+    def get_uselessfact(self):
+        response = self._make_request(self.base_urls['useless_fact'])
+        return response["text"]
+
+    def gen_hashtag(self, text, similar: bool = False):
+        url = self.base_urls['hashtag_generator']
+        data = {"keyword": text, "filter": "top"}
+        response = self._make_request(url, method="POST", data=data)
+        
+        soup = BeautifulSoup(response, "html.parser")
+        hashtags = soup.find("div", id="copy-hashtags").text.strip() if soup.find("div", id="copy-hashtags") else ""
+        
+        if similar:
+            similar_hashtags = soup.find("div", id="copy-hashtags-similar")
+            similar_hashtags_text = similar_hashtags.text.strip() if similar_hashtags else ""
+            return hashtags, similar_hashtags_text
+        return hashtags
 
     def quote(self) -> str:
         """Fetch a random quote."""
@@ -139,81 +166,6 @@ class TheApi:
 
         upload_path = self.upload_image(image)
         return upload_path
-
-    @staticmethod
-    def chatgpt(query):
-        response = requests.get(
-            f"https://chatwithai.codesearch.workers.dev/?chat={query}&model=gpt-4o"
-        )
-        if response.status_code == 200:
-            results = response.json()
-            return results['result']
-
-    @staticmethod
-    def get_advice():
-        try:
-            results = requests.get("https://api.adviceslip.com/advice").json()["slip"][
-                "advice"
-            ]
-            return results
-        except requests.exceptions.RequestException as e:
-            return e
-
-    @staticmethod
-    def get_jokes(amount=1):
-        if not isinstance(amount, int):
-            raise ValueError("The amount must be an integer.")
-
-        if amount > 10 or amount < 1:
-            raise InvalidAmountError(amount)
-
-        response = requests.get(
-            f"https://v2.jokeapi.dev/joke/Any?type=single&amount={amount}"
-        )
-        jokes_data = response.json()
-
-        if amount == 1:
-            return jokes_data["joke"]
-        else:
-            jokes = [joke["joke"] for joke in jokes_data["jokes"]]
-            formatted_jokes = "\n\n".join(
-                f"{i+1}. {joke}" for i, joke in enumerate(jokes)
-            )
-            return formatted_jokes
-
-    @staticmethod
-    def get_hindi_jokes():
-        JOKE_API_ENDPOINT = "https://hindi-jokes-api.onrender.com/jokes?api_key=93eeccc9d663115eba73839b3cd9"
-        response = requests.get(JOKE_API_ENDPOINT).json()
-        if response["status"]:
-            results = response["jokeContent"]
-            return results
-    @staticmethod
-    def get_uselessfact():
-        results = requests.get(
-            "https://uselessfacts.jsph.pl/api/v2/facts/random"
-        ).json()["text"]
-        return results
-
-    @staticmethod
-    def gen_hashtag(text, similiar: bool = False):
-        url = "https://all-hashtag.com/library/contents/ajax_generator.php"
-
-        data = {
-            "keyword": text,
-            "filter": "top",
-        }
-        response = requests.post(url, data=data)
-        soup = BeautifulSoup(response.text, "html.parser")
-        hashtags_div = soup.find("div", id="copy-hashtags")
-        hashtags = hashtags_div.text.strip() if hashtags_div else ""
-        if similiar:
-            similar_hashtags_div = soup.find("div", id="copy-hashtags-similar")
-            similar_hashtags = (
-                similar_hashtags_div.text.strip() if similar_hashtags_div else ""
-            )
-            return hashtags, similar_hashtags
-        return hashtags
 
     def morse_code(self, txt):
         MORSE_CODE_DICT_REVERSED = {
