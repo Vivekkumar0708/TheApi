@@ -33,7 +33,15 @@ class TheApi:
             'hindi_jokes': "https://hindi-jokes-api.onrender.com/jokes?api_key=93eeccc9d663115eba73839b3cd9",
             'useless_fact': "https://uselessfacts.jsph.pl/api/v2/facts/random",
             'hashtag_generator': "https://all-hashtag.com/library/contents/ajax_generator.php",
-            'wikipedia_search': "https://en.wikipedia.org/w/api.php"
+            'wikipedia_search': "https://en.wikipedia.org/w/api.php",
+
+            'words': "https://random-word-api.herokuapp.com/word",
+            'cat': "https://api.thecatapi.com/v1/images/search",
+            'dog': "https://random.dog/woof.json",
+            'pypi': "https://pypi.org/pypi",
+            'meme': "https://meme-api.com/gimme",
+            'fox': "https://randomfox.ca/floof/",
+            'bing_image': "https://www.bing.com/images/async"
         }
 
     def _make_request(
@@ -375,41 +383,23 @@ class TheApi:
             return {"error": f"Unexpected error: {e}"}
 
     def words(self, num_words: int):
-        url = f"https://random-word-api.herokuapp.com/word?number={num_words}"
-        response = requests.get(url)
-
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return []
+        url = f"{self.base_urls['words']}?number={num_words}"
+        response = self._make_request(url)
+        return response if response else []
 
     def cat(self):
-
-        r = requests.get("https://api.thecatapi.com/v1/images/search")
-        if r.status_code == 200:
-            return r.json()[0]["url"]
+        response = self._make_request(self.base_urls['cat'])
+        return response[0]["url"] if response else None
 
     def dog(self):
-        r = requests.get("https://random.dog/woof.json")
-        if r.status_code == 200:
-            return r.json()["url"]
+        response = self._make_request(self.base_urls['dog'])
+        return response["url"] if response else None
 
     def pypi(self, package_name):
-        """
-        Fetches and returns relevant information about a package from PyPI.
-
-        Args:
-        package_name (str): The name of the package to fetch information for.
-
-        Returns:
-        dict: The relevant package information if found, otherwise None.
-        """
-        url = f"https://pypi.org/pypi/{package_name}/json"
-        response = requests.get(url)
-
-        if response.status_code == 200:
-            package_info = response.json()
-            info = package_info["info"]
+        url = f"{self.base_urls['pypi']}/{package_name}/json"
+        response = self._make_request(url)
+        if response:
+            info = response["info"]
             relevant_info = {
                 "name": info["name"],
                 "version": info["version"],
@@ -429,24 +419,14 @@ class TheApi:
             return None
 
     def meme(self):
-        hu = requests.get("https://meme-api.com/gimme").json()
-        return hu["preview"][-1]
+        response = self._make_request(self.base_urls['meme'])
+        return response["preview"][-1] if response else None
 
     def fox(self):
-        return requests.get("https://randomfox.ca/floof/").json()["link"]
+        response = self._make_request(self.base_urls['fox'])
+        return response["link"] if response else None
 
-    def bing_image(self, query: str, limit: int = 3) -> List[str]:
-        """
-        Fetch Bing image links based on the photo name and limit.
-
-        Parameters:
-            query (str): The search query for the image.
-            limit (int): The maximum number of image links to return.
-
-        Returns:
-            List[str]: A list of image URLs.
-        """
-
+    def bing_image(self, query: str, limit: int = 3):
         data = {
             "q": query,
             "first": 0,
@@ -454,19 +434,8 @@ class TheApi:
             "adlt": "off",
             "qft": "",
         }
-
-        url = "https://www.bing.com/images/async"
-        try:
-            resp = requests.get(url, params=data)
-            resp.raise_for_status()
-        except Exception as exc:
-            raise
-        try:
-            links = re.findall(r"murl&quot;:&quot;(.*?)&quot;", resp.text)
-        except Exception as exc:
-            raise
-
-        return links
+        response = self._make_request(self.base_urls['bing_image'], params=data)
+        return re.findall(r"murl&quot;:&quot;(.*?)&quot;", response) if response else []
 
     def stackoverflow_search(
         self, query, max_results=3, sort_type="relevance", use_cache=True
