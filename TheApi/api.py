@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-from .errors import InvalidAmountError
+from .errors import InvalidAmountError, RequestError
 from .functions import MORSE_CODE_DICT
 import urllib3
 
@@ -682,8 +682,7 @@ class TheApi:
 
         return response
 
-    @staticmethod
-    def upload_image(file_path: Union[str, bytes]) -> str:
+    def upload_image(self, file_path: Union[str, bytes]) -> str:
         """
         Uploads an image to a specified URL.
 
@@ -709,25 +708,20 @@ class TheApi:
                 with open(file_path, "rb") as f:
                     image_bytes = f.read()
             except FileNotFoundError:
-                raise ValueError(
-                    f"File not found: '{file_path}' - Ensure the file path is correct."
-                )
+                raise ValueError(f"File not found: '{file_path}' - Ensure the file path is correct.")
         elif isinstance(file_path, bytes):
             image_bytes = file_path
         else:
-            raise ValueError(
-                "Invalid input type - Expected a file path (str) or binary data (bytes)."
-            )
+            raise ValueError("Invalid input type - Expected a file path (str) or binary data (bytes).")
 
-        url = "https://envs.sh"
-        files = {"file": image_bytes}
-        response = requests.post(f"{url}/", files=files)  # Corrected typo
+        url = self.base_urls['upload']
+        files = {"file": ("image.jpg", image_bytes, "image/jpeg")}
 
-        if response.status_code == 200:
-            return response.text.strip()
-        else:
-            raise ValueError("Error: {response.status_code}, {response.text}")
-
+        try:
+            response = self._make_request(url=url, method="POST", files=files)
+            return response.strip() if isinstance(response, str) else "Unexpected response format"
+        except RequestError as e:
+            raise ValueError(f"Upload failed: {str(e)}")
     @staticmethod
     def riddle() -> dict:
         """
