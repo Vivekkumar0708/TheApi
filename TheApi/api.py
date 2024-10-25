@@ -32,7 +32,8 @@ class TheApi:
             'jokes': "https://v2.jokeapi.dev/joke/Any",
             'hindi_jokes': "https://hindi-jokes-api.onrender.com/jokes?api_key=93eeccc9d663115eba73839b3cd9",
             'useless_fact': "https://uselessfacts.jsph.pl/api/v2/facts/random",
-            'hashtag_generator': "https://all-hashtag.com/library/contents/ajax_generator.php"
+            'hashtag_generator': "https://all-hashtag.com/library/contents/ajax_generator.php",
+            'wikipedia_search': "https://en.wikipedia.org/w/api.php"
         }
 
     def _make_request(
@@ -194,7 +195,7 @@ class TheApi:
             return encoded_message.strip()
 
     def wikipedia(self, query):
-        search_url = "https://en.wikipedia.org/w/api.php"
+        search_url = self.base_urls['wikipedia_search']
 
         params = {
             "action": "query",
@@ -203,38 +204,30 @@ class TheApi:
             "format": "json",
         }
 
-        response = requests.get(search_url, params=params)
+        search_response = self._make_request(search_url, params=params)
+        search_results = search_response.get("query", {}).get("search", [])
 
-        if response.status_code == 200:
-            data = response.json()
-            search_results = data.get("query", {}).get("search", [])
+        if search_results:
+            top_result = search_results[0]
+            page_id = top_result["pageid"]
+            summary_url = (
+                f"{self.base_urls['wikipedia_search']}?action=query&prop=extracts|pageimages"
+                f"&exintro&explaintext&piprop=thumbnail&pithumbsize=500&format=json&pageids={page_id}"
+            )
+            
+            summary_response = self._make_request(summary_url)
+            pages = summary_response.get("query", {}).get("pages", {})
+            page_info = pages.get(str(page_id), {})
+            image_url = page_info.get("thumbnail", {}).get("source", "No image available")
 
-            if search_results:
-                top_result = search_results[0]
-                page_id = top_result["pageid"]
-                summary_url = f"https://en.wikipedia.org/w/api.php?action=query&prop=extracts|pageimages&exintro&explaintext&piprop=thumbnail&pithumbsize=500&format=json&pageids={page_id}"
-                summary_response = requests.get(summary_url)
-
-                if summary_response.status_code == 200:
-                    summary_data = summary_response.json()
-                    pages = summary_data.get("query", {}).get("pages", {})
-                    page_info = pages.get(str(page_id), {})
-                    image_url = page_info.get("thumbnail", {}).get(
-                        "source", "No image available"
-                    )
-
-                    return {
-                        "title": top_result["title"],
-                        "summary": page_info.get("extract", "No summary available."),
-                        "url": f"https://en.wikipedia.org/?curid={page_id}",
-                        "image_url": image_url,
-                    }
-                else:
-                    return {"error": "Failed to fetch the page summary"}
-            else:
-                return {"error": "No search results found"}
+            return {
+                "title": top_result["title"],
+                "summary": page_info.get("extract", "No summary available."),
+                "url": f"https://en.wikipedia.org/?curid={page_id}",
+                "image_url": image_url,
+            }
         else:
-            return {"error": "Failed to fetch search results"}
+            return {"error": "No search results found"}
 
     def github_search(self, query, search_type="repositories", max_results=3):
         """
@@ -400,22 +393,6 @@ class TheApi:
         r = requests.get("https://random.dog/woof.json")
         if r.status_code == 200:
             return r.json()["url"]
-
-    def help(self, method_name):
-        """
-        Provides help information for the specified method.
-
-        Parameters:
-            method_name (str): The name of the method for which to display help.
-
-        Returns:
-            str: The docstring of the specified method.
-        """
-        method = getattr(self, method_name, None)
-        if method:
-            return inspect.cleandoc(method.__doc__)
-        else:
-            return f"No method named '{method_name}' found."
 
     def pypi(self, package_name):
         """
