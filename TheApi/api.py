@@ -18,29 +18,77 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class TheApi:
     def __init__(self):
-        pass
+        self.session = requests.Session()
+        self.base_urls = {
+            'quote': "https://api.quotable.io/random",
+            'hindi_quote': "https://hindi-quotes.vercel.app/random",
+            'random_word': "https://random-word-api.herokuapp.com/word",
+            'image': "https://graph.org/file/1f8d00177ac2429b101b9.jpg",
+            'font': "https://github.com/google/fonts/raw/main/ofl/poetsenone/PoetsenOne-Regular.ttf",
+            'upload': "https://envs.sh"
+        }
 
-    @staticmethod
-    def quote():
-        qut = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x61\x70\x69\x2e\x71\x75\x6f\x74\x61\x62\x6c\x65\x2e\x69\x6f\x2f\x72\x61\x6e\x64\x6f\x6d"
-        a = requests.get(qut, verify=False)
-        b = a.json()
-        quote = b["content"]
-        author = b["author"]
-        return f"{quote}\n\nauthor - {author}"
+    def _make_request(
+        self, 
+        url: str, 
+        method: str = 'GET', 
+        params: Optional[Dict] = None, 
+        data: Optional[Dict] = None,
+        files: Optional[Dict] = None,
+        headers: Optional[Dict] = None
+    ) -> Any:
+        """
+        Make HTTP requests with error handling.
 
-    @staticmethod
-    def hindi_quote():
-        response = requests.get("https://hindi-quotes.vercel.app/random")
-        return response.json()["quote"]
+        Args:
+            url: The URL to make the request to
+            method: HTTP method (GET, POST, etc.)
+            params: URL parameters
+            data: Request body data
+            files: Files to upload
+            headers: Request headers
 
-    def randomword(self):
-        url = f"https://random-word-api.herokuapp.com/word?number=1"
-        response = requests.get(url)
+        Returns:
+            Response data (JSON or text based on content)
 
-        if response.status_code == 200:
-            return response.json()[0]
-        else:
+        Raises:
+            RequestError: If the request fails
+        """
+        try:
+            response = self.session.request(
+                method=method,
+                url=url,
+                params=params,
+                data=data,
+                files=files,
+                headers=headers
+            )
+            response.raise_for_status()
+
+            if 'application/json' in response.headers.get('Content-Type', ''):
+                return response.json()
+            return response.content
+
+        except requests.exceptions.RequestException as e:
+            raise RequestError(f"Request failed: {str(e)}")
+
+def quote(self) -> str:
+        """Fetch a random quote."""
+        data = self._make_request(self.base_urls['quote'])
+        return f"{data['content']}\n\nauthor - {data['author']}"
+
+    def hindi_quote(self) -> str:
+        """Fetch a random Hindi quote."""
+        data = self._make_request(self.base_urls['hindi_quote'])
+        return data["quote"]
+
+    def random_word(self) -> str:
+        """Fetch a random word."""
+        params = {'number': 1}
+        try:
+            data = self._make_request(self.base_urls['random_word'], params=params)
+            return data[0]
+        except RequestError:
             return "None"
 
     def write(self, text):
