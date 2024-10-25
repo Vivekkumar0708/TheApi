@@ -20,6 +20,7 @@ class TheApi:
     def __init__(self):
         self.session = requests.Session()
         self.base_urls = {
+            'carbon': "https://carbonara.solopov.dev/api/cook",
             'quote': "https://api.quotable.io/random",
             'hindi_quote': "https://hindi-quotes.vercel.app/random",
             'random_word': "https://random-word-api.herokuapp.com/word",
@@ -131,21 +132,13 @@ class TheApi:
             return upload_path
 
     def carbon(self, query):
-        url = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x61\x72\x62\x6f\x6e\x61\x72\x61\x2e\x73\x6f\x6c\x6f\x70\x6f\x76\x2e\x64\x65\x76\x2f\x61\x70\x69\x2f\x63\x6f\x6f\x6b"
+        response = self._make_request(self.base_urls["carbon"], method="POST", data={"code": query})
 
-        response = requests.post(url, json={"code": query})
-        image = BytesIO(response.content)
+        image = BytesIO(response)
+        image.name = f"{self.randomword()}.png"
 
-        a = self.randomword()
-        image.name = f"{a}.png"
-
-        with open(image.name, "wb") as f:
-            f.write(image.getbuffer())
-
-        if os.path.exists(image.name):
-            upload_path = self.upload_image(image.name)
-            os.remove(image.name)
-            return upload_path
+        upload_path = self.upload_image(image)
+        return upload_path
 
     @staticmethod
     def chatgpt(query):
@@ -155,16 +148,6 @@ class TheApi:
         if response.status_code == 200:
             results = response.json()
             return results['result']
-
-    @staticmethod
-    def gemini(query):
-        response = requests.get(
-            f"https://chatwithai.codesearch.workers.dev/?chat={query}&model=gemini-pro"
-        )
-        if response.status_code == 200:
-            results = response.json()
-            return results['result']
-
 
     @staticmethod
     def get_advice():
@@ -682,46 +665,28 @@ class TheApi:
 
         return response
 
-    def upload_image(self, file_path: Union[str, bytes]) -> str:
-        """
-        Uploads an image to a specified URL.
-
-        This method accepts a file path (as a string) or binary data (as bytes)
-        and uploads the image to a remote server. If the file path is provided,
-        the file is read and uploaded. If binary data is provided, it is directly
-        uploaded. The method returns the response from the server if successful,
-        or an error message if not.
-
-        Args:
-            file_path (Union[str, bytes]): The file path of the image to be uploaded
-                                           or binary data of the image.
-
-        Returns:
-            str: The response text from the server if the upload is successful,
-                 or an error message if the upload fails.
-
-        Raises:
-            ValueError: If the file path is incorrect or the input type is invalid.
-        """
+    def upload_image(self, file_path: Union[str, bytes, BytesIO]) -> str:
         if isinstance(file_path, str):
             try:
                 with open(file_path, "rb") as f:
                     image_bytes = f.read()
             except FileNotFoundError:
                 raise ValueError(f"File not found: '{file_path}' - Ensure the file path is correct.")
-        elif isinstance(file_path, bytes):
-            image_bytes = file_path
+        elif isinstance(file_path, bytes) or isinstance(file_path, BytesIO):
+            image_bytes = file_path if isinstance(file_path, bytes) else file_path.getvalue()
         else:
-            raise ValueError("Invalid input type - Expected a file path (str) or binary data (bytes).")
+            raise ValueError("Invalid input type - Expected a file path (str), binary data (bytes), or BytesIO object.")
 
         url = self.base_urls['upload']
-        files = {"file": ("image.jpg", image_bytes, "image/jpeg")}
+        files = {"file": (file_path.name if isinstance(file_path, BytesIO) else "image.png", image_bytes, "image/png")}
 
         try:
             response = self._make_request(url=url, method="POST", files=files)
             return response.strip() if isinstance(response, str) else "Unexpected response format"
         except RequestError as e:
             raise ValueError(f"Upload failed: {str(e)}")
+
+
     @staticmethod
     def riddle() -> dict:
         """
