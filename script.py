@@ -32,27 +32,32 @@ async def generate_api_status(methods):
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        preface_content.append(f"{function_count}. [{name}](#{name.lower()})")
+        preface_content.append(f"{function_count}. [{name.replace('_', ' ').title()}](#{name.lower()})")
+
+        # Preserve Google style docstring formatting
+        formatted_docstring = "\n".join([f"> {line}" for line in docstring.splitlines()])
 
         if name == "upload_image":
             status = "✅"
             result = "You will get the URL for the image."
             readme_content.append(
-                f"### {name}\n\n"
-                f"**Description**: {docstring}\n\n"
+                f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
+                f"{formatted_docstring}\n\n"
                 f"```python\nfrom TheApi import api\n\n"
-                f"result = await api.upload_image(file_path='file/to/image')\n"
+                f"result = await api.upload_image(file_path='file/to/image.jpg')\n"
                 f"print(result)\n```\n\n"
+                f"#### Expected Output\n\n"
                 f"```text\n{result}\n```\n"
             )
         elif len(signature.parameters) == 0:
             status, result = await test_method(method)
             readme_content.append(
-                f"### {name}\n\n"
-                f"**Description**: {docstring}\n\n"
+                f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
+                f"{formatted_docstring}\n\n"
                 f"```python\nfrom TheApi import api\n\n"
                 f"result = await api.{name}()\n"
                 f"print(result)\n```\n\n"
+                f"#### Expected Output\n\n"
                 f"```text\n{result}\n```\n"
             )
         else:
@@ -64,7 +69,7 @@ async def generate_api_status(methods):
                 elif param.annotation is int:
                     params.append(f"{param.name}=5")
                 else:
-                    params.append(f"{param.name}='pokemon'")
+                    params.append(f"{param.name}='example_value'")
 
             status, result = await test_method(
                 method, *[eval(param.split("=")[1]) for param in params]
@@ -74,20 +79,22 @@ async def generate_api_status(methods):
 
             if status == "✅":
                 readme_content.append(
-                    f"### {name}\n\n"
-                    f"**Description**: {docstring}\n\n"
+                    f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
+                    f"{formatted_docstring}\n\n"
                     f"```python\nfrom TheApi import api\n\n"
                     f"result = await api.{name}({params_str})\n"
                     f"print(result)\n```\n\n"
+                    f"#### Expected Output\n\n"
                     f"```text\n{result}\n```\n"
                 )
             else:
                 readme_content.append(
-                    f"### {name}\n\n"
-                    f"**Description**: {docstring}\n\n"
+                    f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
+                    f"{formatted_docstring}\n\n"
                     f"```python\nfrom TheApi import api\n\n"
                     f"result = await api.{name}({params_str})\n"
                     f"print(result)\n```\n\n"
+                    f"#### Expected Output\n\n"
                     f"```text\n# Error:\n{result}\n```\n"
                 )
 
@@ -119,19 +126,19 @@ async def write_api_status_to_file(
     preface_str = "\n".join(preface_content)
     new_content = "\n".join(readme_content)
 
-    preface = "# API Documentation\n\n"
+    preface = "# 📘 API Documentation\n\n"
     preface += (
-        "This API provides both synchronous and asynchronous usage:\n\n"
+        "Welcome to the **TheApi**! This library allows you to easily interact with the API using both **synchronous** and **asynchronous** options.\n\n"
         "- **Sync**: `from TheApi.sync import api`\n"
         "- **Async**: `from TheApi import api`\n\n"
-        "The following examples use the **async** version.\n\n"
-        "## Function List\n\n"
+        "Below, we’ll cover each function, providing examples and expected results so you can get started quickly! Let’s dive in 🚀\n\n"
+        "## 📂 Quick Function Overview\n\n"
         f"{preface_str}\n\n"
     )
 
-    preface += "## API Status\n\n"
-    preface += "| Function Name | Status |\n"
-    preface += "|---------------|--------|\n"
+    preface += "## 🚦 API Function Status\n\n"
+    preface += "| Function           | Status |\n"
+    preface += "|--------------------|--------|\n"
 
     for function, status in function_statuses:
         preface += f"| [{function}](#{function.lower()}) | {status} |\n"
@@ -139,7 +146,7 @@ async def write_api_status_to_file(
     updated_content = (
         pre_separator_content.strip() + "\n\n" + separator + "\n\n" + preface
     )
-    updated_content += "\n## Code Usage and Results:\n\n" + new_content
+    updated_content += "\n## 🎓 How to Use Each Function\n\n" + new_content
     updated_content += "\n" + license_text
 
     async with aiofiles.open(readme_file, "w") as f:
