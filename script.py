@@ -31,6 +31,7 @@ async def generate_api_status(methods):
             continue
 
         signature = inspect.signature(method)
+        docstring = inspect.getdoc(method) or "No description available."
         preface_content.append(f"{function_count}. [{name}](#{name.lower()})")
 
         if name == "upload_image":
@@ -38,6 +39,7 @@ async def generate_api_status(methods):
             result = "You will get the URL for the image."
             readme_content.append(
                 f"### {name}\n\n"
+                f"**Description**: {docstring}\n\n"
                 f"```python\nfrom TheApi import api\n\n"
                 f"result = await api.upload_image(file_path='file/to/image')\n"
                 f"print(result)\n```\n\n"
@@ -47,6 +49,7 @@ async def generate_api_status(methods):
             status, result = await test_method(method)
             readme_content.append(
                 f"### {name}\n\n"
+                f"**Description**: {docstring}\n\n"
                 f"```python\nfrom TheApi import api\n\n"
                 f"result = await api.{name}()\n"
                 f"print(result)\n```\n\n"
@@ -72,6 +75,7 @@ async def generate_api_status(methods):
             if status == "✅":
                 readme_content.append(
                     f"### {name}\n\n"
+                    f"**Description**: {docstring}\n\n"
                     f"```python\nfrom TheApi import api\n\n"
                     f"result = await api.{name}({params_str})\n"
                     f"print(result)\n```\n\n"
@@ -80,6 +84,7 @@ async def generate_api_status(methods):
             else:
                 readme_content.append(
                     f"### {name}\n\n"
+                    f"**Description**: {docstring}\n\n"
                     f"```python\nfrom TheApi import api\n\n"
                     f"result = await api.{name}({params_str})\n"
                     f"print(result)\n```\n\n"
