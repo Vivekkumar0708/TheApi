@@ -47,12 +47,12 @@ Below, we’ll cover each function, providing examples and expected results so y
 
 ## 🎓 How to Use Each Function
 
-### 1. Bing Image
+# 1. Bing Image
 
 > Searches Bing for images based on a query and retrieves image URLs.
 >
 > Args:
-  >     query (str): The search query string for finding images.
+>     query (str): The search query string for finding images.
 >     limit (int, optional): The maximum number of image URLs to return. Defaults to 3.
 >
 > Returns:
