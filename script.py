@@ -22,21 +22,22 @@ async def test_method(method, *args):
 def format_docstring(docstring):
     lines = docstring.splitlines()
     formatted_lines = []
-    in_args_or_returns = False
+    in_section = False
 
     for line in lines:
         stripped_line = line.strip()
+        
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            formatted_lines.append(f">\n> **{stripped_line}**")
-            in_args_or_returns = True
-        elif in_args_or_returns and line.startswith("    "):
-            formatted_lines.append(f">   {line.strip()}")
+            formatted_lines.append(f"-  **{stripped_line}**")  # Section header with a bullet point
+            in_section = True
+        elif in_section and line.startswith("    "):
+            formatted_lines.append(f"  - {line.strip()}")  # Indented item with a sub-bullet
         elif stripped_line == "":
-            formatted_lines.append(">")
-            in_args_or_returns = False
+            formatted_lines.append("")  # Maintain blank lines
+            in_section = False
         else:
-            formatted_lines.append(f"> {stripped_line}")
-            in_args_or_returns = False
+            formatted_lines.append(f"**Description**:\n{stripped_line}") if not in_section else formatted_lines.append(stripped_line)  # Regular description line
+            in_section = False
 
     return "\n".join(formatted_lines)
 
