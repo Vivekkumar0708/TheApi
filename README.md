@@ -15,72 +15,46 @@ Welcome to the **TheApi**! This library allows you to easily interact with the A
 
 Below, we’ll cover each function, providing examples and expected results so you can get started quickly! Let’s dive in 🚀
 
-## 📂 Quick Function Overview
-
-1. [Bing Image](#bing_image)
-2. [Blackpink](#blackpink)
-3. [Carbon](#carbon)
-4. [Cat](#cat)
-5. [Chatgpt](#chatgpt)
-6. [Dog](#dog)
-7. [Fox](#fox)
-8. [Gen Hashtag](#gen_hashtag)
-9. [Get Advice](#get_advice)
-10. [Get Hindi Jokes](#get_hindi_jokes)
-11. [Get Jokes](#get_jokes)
-12. [Get Uselessfact](#get_uselessfact)
-13. [Github Search](#github_search)
-14. [Hindi Quote](#hindi_quote)
-15. [Meme](#meme)
-16. [Pypi](#pypi)
-17. [Quote](#quote)
-18. [Random Word](#random_word)
-19. [Riddle](#riddle)
-20. [Stackoverflow Search](#stackoverflow_search)
-21. [Upload Image](#upload_image)
-22. [Wikipedia](#wikipedia)
-23. [Words](#words)
-24. [Write](#write)
-
-## 🚦 API Function Status
+## Status
 
 | Function           | Status |
 |--------------------|--------|
-| [bing_image](#bing_image) | ✅ |
-| [blackpink](#blackpink) | ✅ |
-| [carbon](#carbon) | ✅ |
-| [cat](#cat) | ✅ |
-| [chatgpt](#chatgpt) | ❌ |
-| [dog](#dog) | ✅ |
-| [fox](#fox) | ✅ |
-| [gen_hashtag](#gen_hashtag) | ✅ |
-| [get_advice](#get_advice) | ✅ |
-| [get_hindi_jokes](#get_hindi_jokes) | ✅ |
-| [get_jokes](#get_jokes) | ✅ |
-| [get_uselessfact](#get_uselessfact) | ✅ |
-| [github_search](#github_search) | ✅ |
-| [hindi_quote](#hindi_quote) | ✅ |
-| [meme](#meme) | ✅ |
-| [pypi](#pypi) | ❌ |
-| [quote](#quote) | ✅ |
-| [random_word](#random_word) | ✅ |
-| [riddle](#riddle) | ✅ |
-| [stackoverflow_search](#stackoverflow_search) | ✅ |
-| [upload_image](#upload_image) | ✅ |
-| [wikipedia](#wikipedia) | ✅ |
-| [words](#words) | ✅ |
-| [write](#write) | ✅ |
+| [Bing Image](#bing_image) | ✅
+| [Blackpink](#blackpink) | ✅
+| [Carbon](#carbon) | ✅
+| [Cat](#cat) | ✅
+| [Chatgpt](#chatgpt) | ❌
+| [Dog](#dog) | ✅
+| [Fox](#fox) | ✅
+| [Gen Hashtag](#gen_hashtag) | ✅
+| [Get Advice](#get_advice) | ✅
+| [Get Hindi Jokes](#get_hindi_jokes) | ✅
+| [Get Jokes](#get_jokes) | ✅
+| [Get Uselessfact](#get_uselessfact) | ✅
+| [Github Search](#github_search) | ✅
+| [Hindi Quote](#hindi_quote) | ✅
+| [Meme](#meme) | ✅
+| [Pypi](#pypi) | ❌
+| [Quote](#quote) | ✅
+| [Random Word](#random_word) | ✅
+| [Riddle](#riddle) | ✅
+| [Stackoverflow Search](#stackoverflow_search) | ✅
+| [Upload Image](#upload_image) | ✅
+| [Wikipedia](#wikipedia) | ✅
+| [Words](#words) | ✅
+| [Write](#write) | ✅
+
 
 ## 🎓 How to Use Each Function
 
 ### 1. Bing Image
 
 > Searches Bing for images based on a query and retrieves image URLs.
-> 
+>
 > Args:
 >     query (str): The search query string for finding images.
 >     limit (int, optional): The maximum number of image URLs to return. Defaults to 3.
-> 
+>
 > Returns:
 >     list: A list of image URLs retrieved from the Bing search results.
 
@@ -94,20 +68,20 @@ print(result)
 #### Expected Output
 
 ```text
-['https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
+['https://www.smallbusinesscoach.org/wp-content/uploads/2021/03/list-of-values.jpg', 'https://wp.susandavid.com/wp-content/uploads/2022/05/Top-3-Values.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png']
 ```
 
 ### 2. Blackpink
 
 > Creates a stylized "Blackpink"-themed image with custom text, color, and optional border.
-> 
+>
 > Args:
 >     query (str): The text to display on the image.
 >     color (str, optional): The primary color of the text and gradient background in hex format.
 >         Defaults to "#ff94e0" (a pink shade).
 >     border_color (str, optional): The color of the image border in hex format.
 >         If not provided, defaults to the value of `color`.
-> 
+>
 > Returns:
 >     FilePath: The file path of the generated image with delete attribute.
 
@@ -121,17 +95,17 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_HmFvQSVW.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_82YRRE2g.jpg
 ```
 
 ### 3. Carbon
 
 > Generates a code snippet image using the Carbon API, saves it to the downloads folder,
 > uploads it, and returns the URL of the uploaded image.
-> 
+>
 > Args:
 >     query (str): The code snippet to be rendered as an image.
-> 
+>
 > Returns:
 >     FilePath: The file path of the saved image.
 
@@ -145,13 +119,13 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_j8PXpzRM.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_IgK4bIr1.png
 ```
 
 ### 4. Cat
 
 > Fetches a random cat image URL.
-> 
+>
 > Returns:
 >     str or None: The URL of a random cat image if available; None if no response is received.
 
@@ -165,16 +139,16 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/5ot.jpg
+https://cdn2.thecatapi.com/images/LXgmee2q_.jpg
 ```
 
 ### 5. Chatgpt
 
 > Sends a query to the ChatGPT API and retrieves the response.
-> 
+>
 > Args:
 >     query (str): The query or prompt for ChatGPT.
-> 
+>
 > Returns:
 >     str: The response generated by ChatGPT.
 
@@ -195,7 +169,7 @@ Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.w
 ### 6. Dog
 
 > Fetches a random dog image URL.
-> 
+>
 > Returns:
 >     str or None: The URL of a random dog image if available; None if no response is received.
 
@@ -209,13 +183,13 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/5b2a4e74-58da-4519-a67b-d0eed900b676.jpg
+https://random.dog/6d07c332-b2b3-418e-a3ab-bb189e4bb899.jpg
 ```
 
 ### 7. Fox
 
 > Fetches a random fox image URL.
-> 
+>
 > Returns:
 >     str or None: The URL of the fox image if available, otherwise None.
 
@@ -229,17 +203,17 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=122
+https://randomfox.ca/?i=67
 ```
 
 ### 8. Gen Hashtag
 
 > Generates hashtags based on a given keyword.
-> 
+>
 > Args:
 >     text (str): The keyword for generating hashtags.
 >     similar (bool, optional): If True, also returns similar hashtags. Defaults to False.
-> 
+>
 > Returns:
 >     str or tuple: A string of top hashtags if `similar` is False.
 >                   If `similar` is True, returns a tuple with top hashtags and similar hashtags.
@@ -260,7 +234,7 @@ print(result)
 ### 9. Get Advice
 
 > Fetches a random piece of advice.
-> 
+>
 > Returns:
 >     str: A random advice message.
 
@@ -274,13 +248,13 @@ print(result)
 #### Expected Output
 
 ```text
-Don't assume anything is possible or impossible until you've asked the people who will be doing the work.
+Alway do anything for love, but don't do that.
 ```
 
 ### 10. Get Hindi Jokes
 
 > Fetches a random Hindi joke.
-> 
+>
 > Returns:
 >     str: A random Hindi joke if available, or "No joke found" if not available.
 
@@ -294,16 +268,16 @@ print(result)
 #### Expected Output
 
 ```text
-इस मतलबी दुनिया में, एक पान वाला ही है, जो पूछ कर चुना लगाता है ! 😆🤣😋😉
+पति को बाजार जाते हुए देख पत्नी ने पैसे देकर कहा  कुछ ऐसी चीज़ लाना जिस से मैं सुन्दर दिखूं  👗👓💄👠🎀 पति खुद के लिए Whisky की दो बोतल ले आया। 😜😃
 ```
 
 ### 11. Get Jokes
 
 > Fetches a specified number of jokes.
-> 
+>
 > Args:
 >     amount (int, optional): The number of jokes to retrieve. Defaults to 1.
-> 
+>
 > Returns:
 >     str: A single joke if `amount` is 1. If `amount` > 1, returns numbered jokes as a formatted string.
 
@@ -317,16 +291,18 @@ print(result)
 #### Expected Output
 
 ```text
-What does the MacBook have in common with Donald Trump?
+"Knock, knock."
+"Who's there?"
 
-I would tell you....
-But I don't compare apples to oranges.
+[very long pause]
+
+"Java."
 ```
 
 ### 12. Get Uselessfact
 
 > Fetches a random useless fact.
-> 
+>
 > Returns:
 >     str: A random useless fact.
 
@@ -340,13 +316,13 @@ print(result)
 #### Expected Output
 
 ```text
-Right-handed people live, on average; nine years longer than left handed people.
+The average North American will eat 35,000 cookies during their life span.
 ```
 
 ### 13. Github Search
 
 > Searches GitHub for various types of content.
-> 
+>
 > Args:
 >     query (str): The search query.
 >     search_type (str, optional): The type of search. Can be one of:
@@ -357,10 +333,10 @@ Right-handed people live, on average; nine years longer than left handed people.
 >         - "pull_requests"
 >         - "commits"
 >         - "topics"
-> 
+>
 >         Defaults to "repositories".
 >     max_results (int, optional): The maximum number of results to return. Defaults to 3.
-> 
+>
 > Returns:
 >     list: A list of search results or an error message.
 
@@ -380,7 +356,7 @@ print(result)
 ### 14. Hindi Quote
 
 > Fetches a random Hindi quote.
-> 
+>
 > Returns:
 >     str: The content of a random Hindi quote.
 
@@ -394,13 +370,13 @@ print(result)
 #### Expected Output
 
 ```text
-मुफ्त में नही सीखा उदासी मे मुस्कुराने का हुनर, इसके बदले ज़िन्दगी की हर खुशी तबाह की है
+बहुत खास हो ‘तुम’…ज़िक्र हर बार ज़रुरी नहीं..
 ```
 
 ### 15. Meme
 
 > Fetches a random meme image URL.
-> 
+>
 > Returns:
 >     str or None: The URL of the meme image if available, otherwise None.
 
@@ -414,16 +390,16 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/iqnolxv1130e1.png?width=960&crop=smart&auto=webp&s=aac306505d37c7dbed297674f39e10973ef8ff18
+https://preview.redd.it/zq0d1pu1dzzd1.png?width=320&crop=smart&auto=webp&s=b0993b24cda4730d95c73fa7f6bfb939916be016
 ```
 
 ### 16. Pypi
 
 > Retrieves metadata information about a specified Python package from the PyPI API.
-> 
+>
 > Args:
 >     package_name (str): The name of the package to search for on PyPI.
-> 
+>
 > Returns:
 >     dict or None: A dictionary with relevant package information if found, containing:
 >         - name (str): Package name.
@@ -457,7 +433,7 @@ Request failed: 404, message='Not Found', url='https://pypi.org/pypi/example_val
 ### 17. Quote
 
 > Fetches a random quote.
-> 
+>
 > Returns:
 >     str: The content of a random quote followed by the author's name.
 
@@ -471,15 +447,15 @@ print(result)
 #### Expected Output
 
 ```text
-I think somehow, we learn who we really are and then live with that decision.
+True friendship is like sound health; the value of it is seldom known until it is lost.
 
-author - Eleanor Roosevelt
+author - Charles Caleb Colton
 ```
 
 ### 18. Random Word
 
 > Fetches a random word.
-> 
+>
 > Returns:
 >     str: A random word if available; "None" if an error occurs.
 
@@ -493,13 +469,13 @@ print(result)
 #### Expected Output
 
 ```text
-autoroute
+foodies
 ```
 
 ### 19. Riddle
 
 > Fetches a random riddle from the Riddles API.
-> 
+>
 > Returns:
 >     dict: The riddle data in JSON format.
 
@@ -513,21 +489,21 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': "I have four wings, but cannot fly, I never laugh and never cry; On the same spot I'm always found, toiling away with little sound. What am I?", 'answer': 'Holland. A Windmill'}
+{'riddle': "I herald the darkness which descends on all creatures; You will know my approach by moans and wracked features. I visit the hippo, hyena, and horse, But never go near snails and spiders, of course. I would circle the glove, leaping one to the other, Should all the world's people ever clasp hands together.  What am I?", 'answer': 'I am a Yawn'}
 ```
 
 ### 20. Stackoverflow Search
 
 > Searches Stack Overflow for questions based on a query, returning results sorted by relevance or another specified criteria.
-> 
+>
 > Args:
 >     query (str): The search query string.
 >     max_results (int, optional): The maximum number of results to return. Defaults to 3.
 >     sort_type (str, optional): The sorting criteria for the results, such as "relevance" or "votes". Defaults to "relevance".
-> 
+>
 > Returns:
 >     list: A list of search results in JSON format, with each entry containing Stack Overflow question details.
-> 
+>
 > Raises:
 >     ValueError: If there is an issue with the request to the Stack Overflow API.
 
@@ -547,15 +523,15 @@ print(result)
 ### 21. Upload Image
 
 > Uploads an image to https://envs.sh.
-> 
+>
 > Args:
 >     file_path (Union[str, bytes, BytesIO]): The image file to upload.
 >         Can be a file path (str), binary data (bytes), or a BytesIO object.
-> 
+>
 > Returns:
 >     str: The URL or confirmation message of the uploaded image if the upload is successful.
 >         Returns "Unexpected response format" if the response format is not as expected.
-> 
+>
 > Raises:
 >     ValueError: If the file is not found, the input type is invalid,
 >         or the upload request fails.
@@ -576,17 +552,17 @@ You will get the URL for the image.
 ### 22. Wikipedia
 
 > Searches Wikipedia for a given query and retrieves the top result's summary, URL, and image.
-> 
+>
 > Args:
 >     query (str): The search term to look up on Wikipedia.
-> 
+>
 > Returns:
 >     dict: A dictionary containing information about the top search result, with keys:
 >         - title (str): The title of the Wikipedia article.
 >         - summary (str): A brief summary of the article's content.
 >         - url (str): The URL link to the full Wikipedia article.
 >         - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
-> 
+>
 >     If no results are found, returns a dictionary with an "error" key.
 
 ```python
@@ -605,10 +581,10 @@ print(result)
 ### 23. Words
 
 > Fetches a specified number of random words.
-> 
+>
 > Args:
 >     num_words (int): The number of random words to retrieve.
-> 
+>
 > Returns:
 >     list: A list of random words if available; an empty list if no response is received.
 
@@ -622,21 +598,21 @@ print(result)
 #### Expected Output
 
 ```text
-['racoons', 'unsociably', 'pirate', 'furious', 'ornithoses']
+['prototypically', 'been', 'discoverer', 'dolours', 'noxiousness']
 ```
 
 ### 24. Write
 
 > Creates an image with text written on it, using a predefined template and font,
 > and uploads the image after generation.
-> 
+>
 > Args:
 >     text (str): The text to be written on the image. Text exceeding 55 characters
 >                 per line will be wrapped, with up to 25 lines displayed.
-> 
+>
 > Returns:
 >     str: The URL of the uploaded image.
-> 
+>
 > Notes:
 >     A temporary image file is created, saved, and removed after uploading.
 
@@ -650,7 +626,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_9FPkXAHt.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_mjjV86ar.jpg
 ```
 
 
