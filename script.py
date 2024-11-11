@@ -16,7 +16,7 @@ async def test_method(method, *args):
         return status, result
     except Exception as e:
         status = "❌"
-        return status, str(e)
+        return status, f"{type(e).__name__}: {str(e)}"
 
 
 def format_docstring(docstring):
@@ -26,24 +26,18 @@ def format_docstring(docstring):
 
     for line in lines:
         stripped_line = line.strip()
-
+        
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            # Section header with a bullet point
-            formatted_lines.append(f"-  **{stripped_line}**")
+            formatted_lines.append(f"**{stripped_line}**")  # Section header without bullet
             in_section = True
         elif in_section and line.startswith("    "):
-            # Indented item with a sub-bullet
-            formatted_lines.append(f"  - {line.strip()}")
+            formatted_lines.append(f"  - {line.strip()}")  # Indented bullet for items in Args/Returns
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
         else:
             # Regular description line
-            (
-                formatted_lines.append(f"**Description**:\n{stripped_line}")
-                if not in_section
-                else formatted_lines.append(stripped_line)
-            )
+            formatted_lines.append(f"**Description**:\n{stripped_line}") if not in_section else formatted_lines.append(stripped_line)
             in_section = False
 
     return "\n".join(formatted_lines)
