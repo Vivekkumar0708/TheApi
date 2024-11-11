@@ -16,7 +16,7 @@ async def test_method(method, *args):
         return status, result
     except Exception as e:
         status = "❌"
-        return status, f"{type(e).__name__}: {str(e)}"
+        return status, str(e)
 
 
 def format_docstring(docstring):
@@ -26,24 +26,18 @@ def format_docstring(docstring):
 
     for line in lines:
         stripped_line = line.strip()
-
+        
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            # Section header without bullet
-            formatted_lines.append(f"**{stripped_line}**")
+            formatted_lines.append(f"**{stripped_line}**")  # Section header without bullet
             in_section = True
         elif in_section and line.startswith("    "):
-            # Indented bullet for items in Args/Returns
-            formatted_lines.append(f"  - {line.strip()}")
+            formatted_lines.append(f"  - {line.strip()}")  # Indented bullet for items in Args/Returns
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
         else:
             # Regular description line
-            (
-                formatted_lines.append(f"**Description**:\n{stripped_line}")
-                if not in_section
-                else formatted_lines.append(stripped_line)
-            )
+            formatted_lines.append(f"**Description**:\n{stripped_line}") if not in_section else formatted_lines.append(stripped_line)
             in_section = False
 
     return "\n".join(formatted_lines)
@@ -56,32 +50,20 @@ async def generate_api_status(methods):
     function_count = 1
 
     for name, method in methods:
-        print(f"Processing {name}")
         if name.startswith("_"):
             continue
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        status_content.append(
-            f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | "
-        )
+        
+        # Generate URL-friendly link for the status table
+        formatted_name = name.replace("_", "-").lower()
+        status_content.append(f"| [{function_count}. {name.replace('_', ' ').title()}](#{function_count}-{formatted_name}) | ")
 
-        # Preserve Google-style docstring formatting in Markdown
         formatted_docstring = format_docstring(docstring)
 
-        if name == "upload_image":
-            status = "✅"
-            result = "You will get the URL for the image."
-            readme_content.append(
-                f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
-                f"{formatted_docstring}\n\n"
-                f"```python\nfrom TheApi import api\n\n"
-                f"result = await api.upload_image(file_path='file/to/image.jpg')\n"
-                f"print(result)\n```\n\n"
-                f"#### Expected Output\n\n"
-                f"```text\n{result}\n```\n"
-            )
-        elif len(signature.parameters) == 0:
+        # Generate the content for each function with numbered title and URL-friendly heading
+        if len(signature.parameters) == 0:
             status, result = await test_method(method)
             readme_content.append(
                 f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
