@@ -19,10 +19,22 @@ async def test_method(method, *args):
         return status, str(e)
 
 
+def format_docstring(docstring):
+    """Formats docstring in Markdown to preserve Google-style formatting."""
+    lines = docstring.splitlines()
+    formatted_lines = []
+    for line in lines:
+        if line.strip() == "":
+            formatted_lines.append(">")
+        else:
+            formatted_lines.append(f"> {line}")
+    return "\n".join(formatted_lines)
+
+
 async def generate_api_status(methods):
     function_statuses = []
     readme_content = []
-    preface_content = []
+    status_content = []
     function_count = 1
 
     for name, method in methods:
@@ -32,14 +44,10 @@ async def generate_api_status(methods):
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        preface_content.append(
-            f"{function_count}. [{name.replace('_', ' ').title()}](#{name.lower()})"
-        )
+        status_content.append(f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | ")
 
-        # Preserve Google style docstring formatting
-        formatted_docstring = "\n".join(
-            [f"> {line}" for line in docstring.splitlines()]
-        )
+        # Preserve Google-style docstring formatting in Markdown
+        formatted_docstring = format_docstring(docstring)
 
         if name == "upload_image":
             status = "✅"
@@ -102,15 +110,15 @@ async def generate_api_status(methods):
                     f"```text\n# Error:\n{result}\n```\n"
                 )
 
+        status_content[-1] += status
         function_statuses.append((name, status))
         function_count += 1
 
-    return preface_content, function_statuses, readme_content
+    return status_content, readme_content
 
 
 async def write_api_status_to_file(
-    preface_content,
-    function_statuses,
+    status_content,
     readme_content,
     readme_file="README.md",
     separator="---",
@@ -127,7 +135,7 @@ async def write_api_status_to_file(
     else:
         pre_separator_content = existing_content
 
-    preface_str = "\n".join(preface_content)
+    status_str = "\n".join(status_content)
     new_content = "\n".join(readme_content)
 
     preface = "# 📘 API Documentation\n\n"
@@ -136,16 +144,11 @@ async def write_api_status_to_file(
         "- **Sync**: `from TheApi.sync import api`\n"
         "- **Async**: `from TheApi import api`\n\n"
         "Below, we’ll cover each function, providing examples and expected results so you can get started quickly! Let’s dive in 🚀\n\n"
-        "## 📂 Quick Function Overview\n\n"
-        f"{preface_str}\n\n"
+        "## Status\n\n"
+        "| Function           | Status |\n"
+        "|--------------------|--------|\n"
+        f"{status_str}\n\n"
     )
-
-    preface += "## 🚦 API Function Status\n\n"
-    preface += "| Function           | Status |\n"
-    preface += "|--------------------|--------|\n"
-
-    for function, status in function_statuses:
-        preface += f"| [{function}](#{function.lower()}) | {status} |\n"
 
     updated_content = (
         pre_separator_content.strip() + "\n\n" + separator + "\n\n" + preface
@@ -161,10 +164,8 @@ async def main():
     methods = inspect.getmembers(
         api, predicate=lambda m: inspect.ismethod(m) or inspect.isfunction(m)
     )
-    preface_content, function_statuses, readme_content = await generate_api_status(
-        methods
-    )
-    await write_api_status_to_file(preface_content, function_statuses, readme_content)
+    status_content, readme_content = await generate_api_status(methods)
+    await write_api_status_to_file(status_content, readme_content)
 
 
 if __name__ == "__main__":
