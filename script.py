@@ -25,22 +25,20 @@ def format_docstring(docstring):
     in_args_or_returns = False
 
     for line in lines:
-        if line.strip() in ["Args:", "Returns:", "Raises:"]:
-            formatted_lines.append(f">\n> **{line.strip()}**")
+        stripped_line = line.strip()
+        if stripped_line in ["Args:", "Returns:", "Raises:"]:
+            formatted_lines.append(f">\n> **{stripped_line}**")
             in_args_or_returns = True
         elif in_args_or_returns and line.startswith("    "):
-            # Indent items within Args, Returns, etc.
-            formatted_lines.append(f">     {line.strip()}")
-        elif line.strip() == "":
-            # Blank line, maintain spacing
+            formatted_lines.append(f">   {line.strip()}")
+        elif stripped_line == "":
             formatted_lines.append(">")
             in_args_or_returns = False
         else:
-            # General description line
-            formatted_lines.append(f"> {line.strip()}")
+            formatted_lines.append(f"> {stripped_line}")
             in_args_or_returns = False
-    return "\n".join(formatted_lines)
 
+    return "\n".join(formatted_lines)
 
 async def generate_api_status(methods):
     function_statuses = []
