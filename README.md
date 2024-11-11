@@ -6,46 +6,46 @@ pip install git+https://github.com/Vivekkumar-IN/TheApi@main
 
 ---
 
-# API Documentation
+# 📘 API Documentation
 
-This API provides both synchronous and asynchronous usage:
+Welcome to the **TheApi**! This library allows you to easily interact with the API using both **synchronous** and **asynchronous** options.
 
 - **Sync**: `from TheApi.sync import api`
 - **Async**: `from TheApi import api`
 
-The following examples use the **async** version.
+Below, we’ll cover each function, providing examples and expected results so you can get started quickly! Let’s dive in 🚀
 
-## Function List
+## 📂 Quick Function Overview
 
-1. [bing_image](#bing_image)
-2. [blackpink](#blackpink)
-3. [carbon](#carbon)
-4. [cat](#cat)
-5. [chatgpt](#chatgpt)
-6. [dog](#dog)
-7. [fox](#fox)
-8. [gen_hashtag](#gen_hashtag)
-9. [get_advice](#get_advice)
-10. [get_hindi_jokes](#get_hindi_jokes)
-11. [get_jokes](#get_jokes)
-12. [get_uselessfact](#get_uselessfact)
-13. [github_search](#github_search)
-14. [hindi_quote](#hindi_quote)
-15. [meme](#meme)
-16. [pypi](#pypi)
-17. [quote](#quote)
-18. [random_word](#random_word)
-19. [riddle](#riddle)
-20. [stackoverflow_search](#stackoverflow_search)
-21. [upload_image](#upload_image)
-22. [wikipedia](#wikipedia)
-23. [words](#words)
-24. [write](#write)
+1. [Bing Image](#bing_image)
+2. [Blackpink](#blackpink)
+3. [Carbon](#carbon)
+4. [Cat](#cat)
+5. [Chatgpt](#chatgpt)
+6. [Dog](#dog)
+7. [Fox](#fox)
+8. [Gen Hashtag](#gen_hashtag)
+9. [Get Advice](#get_advice)
+10. [Get Hindi Jokes](#get_hindi_jokes)
+11. [Get Jokes](#get_jokes)
+12. [Get Uselessfact](#get_uselessfact)
+13. [Github Search](#github_search)
+14. [Hindi Quote](#hindi_quote)
+15. [Meme](#meme)
+16. [Pypi](#pypi)
+17. [Quote](#quote)
+18. [Random Word](#random_word)
+19. [Riddle](#riddle)
+20. [Stackoverflow Search](#stackoverflow_search)
+21. [Upload Image](#upload_image)
+22. [Wikipedia](#wikipedia)
+23. [Words](#words)
+24. [Write](#write)
 
-## API Status
+## 🚦 API Function Status
 
-| Function Name | Status |
-|---------------|--------|
+| Function           | Status |
+|--------------------|--------|
 | [bing_image](#bing_image) | ✅ |
 | [blackpink](#blackpink) | ✅ |
 | [carbon](#carbon) | ✅ |
@@ -61,7 +61,7 @@ The following examples use the **async** version.
 | [github_search](#github_search) | ✅ |
 | [hindi_quote](#hindi_quote) | ✅ |
 | [meme](#meme) | ✅ |
-| [pypi](#pypi) | ✅ |
+| [pypi](#pypi) | ❌ |
 | [quote](#quote) | ✅ |
 | [random_word](#random_word) | ✅ |
 | [riddle](#riddle) | ✅ |
@@ -71,83 +71,89 @@ The following examples use the **async** version.
 | [words](#words) | ✅ |
 | [write](#write) | ✅ |
 
-## Code Usage and Results:
+## 🎓 How to Use Each Function
 
-### bing_image
+### 1. Bing Image
 
-**Description**: Searches Bing for images based on a query and retrieves image URLs.
-
-Args:
-    query (str): The search query string for finding images.
-    limit (int, optional): The maximum number of image URLs to return. Defaults to 3.
-
-Returns:
-    list: A list of image URLs retrieved from the Bing search results.
-
-```python
-from TheApi import api
-
-result = await api.bing_image(query='pokemon', limit=3)
-print(result)
-```
-
-```text
-['https://static3.cbrimages.com/wordpress/wp-content/uploads/2019/09/Pokemon-Ash-Feature-Image-1.jpg', 'https://images5.alphacoders.com/130/thumb-1920-1308338.jpg', 'https://staticg.sportskeeda.com/editor/2023/02/394a3-16769313907566-1920.jpg']
-```
-
-### blackpink
-
-**Description**: Creates a stylized "Blackpink"-themed image with custom text, color, and optional border.
-
-Args:
-    query (str): The text to display on the image.
-    color (str, optional): The primary color of the text and gradient background in hex format.
-        Defaults to "#ff94e0" (a pink shade).
-    border_color (str, optional): The color of the image border in hex format.
-        If not provided, defaults to the value of `color`.
-
-Returns:
-    FilePath: The file path of the generated image with delete attribute.
+> Searches Bing for images based on a query and retrieves image URLs.
+> 
+> Args:
+>     query (str): The search query string for finding images.
+>     limit (int, optional): The maximum number of image URLs to return. Defaults to 3.
+> 
+> Returns:
+>     list: A list of image URLs retrieved from the Bing search results.
 
 ```python
 from TheApi import api
 
-result = await api.blackpink(query='pokemon', color='#ff94e0', border_color=None)
+result = await api.bing_image(query='example_value', limit=3)
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_ykp4x4we.jpg
+['https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
 ```
 
-### carbon
+### 2. Blackpink
 
-**Description**: Generates a code snippet image using the Carbon API, saves it to the downloads folder,
-uploads it, and returns the URL of the uploaded image.
-
-Args:
-    query (str): The code snippet to be rendered as an image.
-
-Returns:
-    FilePath: The file path of the saved image.
+> Creates a stylized "Blackpink"-themed image with custom text, color, and optional border.
+> 
+> Args:
+>     query (str): The text to display on the image.
+>     color (str, optional): The primary color of the text and gradient background in hex format.
+>         Defaults to "#ff94e0" (a pink shade).
+>     border_color (str, optional): The color of the image border in hex format.
+>         If not provided, defaults to the value of `color`.
+> 
+> Returns:
+>     FilePath: The file path of the generated image with delete attribute.
 
 ```python
 from TheApi import api
 
-result = await api.carbon(query='pokemon')
+result = await api.blackpink(query='example_value', color='#ff94e0', border_color=None)
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_6m5HDS6B.png
+/home/runner/work/TheApi/TheApi/downloads/blackpink_HmFvQSVW.jpg
 ```
 
-### cat
+### 3. Carbon
 
-**Description**: Fetches a random cat image URL.
+> Generates a code snippet image using the Carbon API, saves it to the downloads folder,
+> uploads it, and returns the URL of the uploaded image.
+> 
+> Args:
+>     query (str): The code snippet to be rendered as an image.
+> 
+> Returns:
+>     FilePath: The file path of the saved image.
 
-Returns:
-    str or None: The URL of a random cat image if available; None if no response is received.
+```python
+from TheApi import api
+
+result = await api.carbon(query='example_value')
+print(result)
+```
+
+#### Expected Output
+
+```text
+/home/runner/work/TheApi/TheApi/downloads/carbon_j8PXpzRM.png
+```
+
+### 4. Cat
+
+> Fetches a random cat image URL.
+> 
+> Returns:
+>     str or None: The URL of a random cat image if available; None if no response is received.
 
 ```python
 from TheApi import api
@@ -156,38 +162,42 @@ result = await api.cat()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-https://cdn2.thecatapi.com/images/288PdOHcK.jpg
+https://cdn2.thecatapi.com/images/5ot.jpg
 ```
 
-### chatgpt
+### 5. Chatgpt
 
-**Description**: Sends a query to the ChatGPT API and retrieves the response.
-
-Args:
-    query (str): The query or prompt for ChatGPT.
-
-Returns:
-    str: The response generated by ChatGPT.
+> Sends a query to the ChatGPT API and retrieves the response.
+> 
+> Args:
+>     query (str): The query or prompt for ChatGPT.
+> 
+> Returns:
+>     str: The response generated by ChatGPT.
 
 ```python
 from TheApi import api
 
-result = await api.chatgpt(query='pokemon')
+result = await api.chatgpt(query='example_value')
 print(result)
 ```
 
+#### Expected Output
+
 ```text
 # Error:
-Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=pokemon&model=gpt-4o'
+Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=example_value&model=gpt-4o'
 ```
 
-### dog
+### 6. Dog
 
-**Description**: Fetches a random dog image URL.
-
-Returns:
-    str or None: The URL of a random dog image if available; None if no response is received.
+> Fetches a random dog image URL.
+> 
+> Returns:
+>     str or None: The URL of a random dog image if available; None if no response is received.
 
 ```python
 from TheApi import api
@@ -196,16 +206,18 @@ result = await api.dog()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-https://random.dog/ef230976-04dd-4bb0-a1ae-dc1bf2d2dad1.jpg
+https://random.dog/5b2a4e74-58da-4519-a67b-d0eed900b676.jpg
 ```
 
-### fox
+### 7. Fox
 
-**Description**: Fetches a random fox image URL.
-
-Returns:
-    str or None: The URL of the fox image if available, otherwise None.
+> Fetches a random fox image URL.
+> 
+> Returns:
+>     str or None: The URL of the fox image if available, otherwise None.
 
 ```python
 from TheApi import api
@@ -214,39 +226,43 @@ result = await api.fox()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-https://randomfox.ca/?i=100
+https://randomfox.ca/?i=122
 ```
 
-### gen_hashtag
+### 8. Gen Hashtag
 
-**Description**: Generates hashtags based on a given keyword.
-
-Args:
-    text (str): The keyword for generating hashtags.
-    similar (bool, optional): If True, also returns similar hashtags. Defaults to False.
-
-Returns:
-    str or tuple: A string of top hashtags if `similar` is False.
-                  If `similar` is True, returns a tuple with top hashtags and similar hashtags.
+> Generates hashtags based on a given keyword.
+> 
+> Args:
+>     text (str): The keyword for generating hashtags.
+>     similar (bool, optional): If True, also returns similar hashtags. Defaults to False.
+> 
+> Returns:
+>     str or tuple: A string of top hashtags if `similar` is False.
+>                   If `similar` is True, returns a tuple with top hashtags and similar hashtags.
 
 ```python
 from TheApi import api
 
-result = await api.gen_hashtag(text='pokemon', similar=False)
+result = await api.gen_hashtag(text='example_value', similar=False)
 print(result)
 ```
+
+#### Expected Output
 
 ```text
 
 ```
 
-### get_advice
+### 9. Get Advice
 
-**Description**: Fetches a random piece of advice.
-
-Returns:
-    str: A random advice message.
+> Fetches a random piece of advice.
+> 
+> Returns:
+>     str: A random advice message.
 
 ```python
 from TheApi import api
@@ -255,16 +271,18 @@ result = await api.get_advice()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-Don't wear clean trousers when walking your dog in the park.
+Don't assume anything is possible or impossible until you've asked the people who will be doing the work.
 ```
 
-### get_hindi_jokes
+### 10. Get Hindi Jokes
 
-**Description**: Fetches a random Hindi joke.
-
-Returns:
-    str: A random Hindi joke if available, or "No joke found" if not available.
+> Fetches a random Hindi joke.
+> 
+> Returns:
+>     str: A random Hindi joke if available, or "No joke found" if not available.
 
 ```python
 from TheApi import api
@@ -273,20 +291,21 @@ result = await api.get_hindi_jokes()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-एक क्रिकेट टीम के जब सारे प्लेयर आउट हो जाते हैं, तो सारे मच्छर भाग जाते हैं।  
-सोचो सोचो क्यों... क्योंकि टीम  ...ऑल आउट.. है न 😆🤣😋😉
+इस मतलबी दुनिया में, एक पान वाला ही है, जो पूछ कर चुना लगाता है ! 😆🤣😋😉
 ```
 
-### get_jokes
+### 11. Get Jokes
 
-**Description**: Fetches a specified number of jokes.
-
-Args:
-    amount (int, optional): The number of jokes to retrieve. Defaults to 1.
-
-Returns:
-    str: A single joke if `amount` is 1. If `amount` > 1, returns numbered jokes as a formatted string.
+> Fetches a specified number of jokes.
+> 
+> Args:
+>     amount (int, optional): The number of jokes to retrieve. Defaults to 1.
+> 
+> Returns:
+>     str: A single joke if `amount` is 1. If `amount` > 1, returns numbered jokes as a formatted string.
 
 ```python
 from TheApi import api
@@ -295,16 +314,21 @@ result = await api.get_jokes(amount=1)
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-How do you make holy water? You boil the hell out of it.
+What does the MacBook have in common with Donald Trump?
+
+I would tell you....
+But I don't compare apples to oranges.
 ```
 
-### get_uselessfact
+### 12. Get Uselessfact
 
-**Description**: Fetches a random useless fact.
-
-Returns:
-    str: A random useless fact.
+> Fetches a random useless fact.
+> 
+> Returns:
+>     str: A random useless fact.
 
 ```python
 from TheApi import api
@@ -313,48 +337,52 @@ result = await api.get_uselessfact()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-The crack of a whip is actually a tiny sonic boom, since the tip breaks the sound barrier.
+Right-handed people live, on average; nine years longer than left handed people.
 ```
 
-### github_search
+### 13. Github Search
 
-**Description**: Searches GitHub for various types of content.
-
-Args:
-    query (str): The search query.
-    search_type (str, optional): The type of search. Can be one of:
-        - "repositories"
-        - "users"
-        - "organizations"
-        - "issues"
-        - "pull_requests"
-        - "commits"
-        - "topics"
-
-        Defaults to "repositories".
-    max_results (int, optional): The maximum number of results to return. Defaults to 3.
-
-Returns:
-    list: A list of search results or an error message.
+> Searches GitHub for various types of content.
+> 
+> Args:
+>     query (str): The search query.
+>     search_type (str, optional): The type of search. Can be one of:
+>         - "repositories"
+>         - "users"
+>         - "organizations"
+>         - "issues"
+>         - "pull_requests"
+>         - "commits"
+>         - "topics"
+> 
+>         Defaults to "repositories".
+>     max_results (int, optional): The maximum number of results to return. Defaults to 3.
+> 
+> Returns:
+>     list: A list of search results or an error message.
 
 ```python
 from TheApi import api
 
-result = await api.github_search(query='pokemon', search_type='repositories', max_results=3)
+result = await api.github_search(query='example_value', search_type='repositories', max_results=3)
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-[{'name': 'PokemonGo-Map', 'full_name': 'AHAAAAAAA/PokemonGo-Map', 'description': '🌏 Live visualization of all the pokemon in your area... and more! (shutdown)', 'url': 'https://github.com/AHAAAAAAA/PokemonGo-Map', 'language': None, 'stargazers_count': 7529, 'forks_count': 2815}, {'name': 'pokemon-showdown', 'full_name': 'smogon/pokemon-showdown', 'description': 'Pokémon battle simulator.', 'url': 'https://github.com/smogon/pokemon-showdown', 'language': 'TypeScript', 'stargazers_count': 4789, 'forks_count': 2796}, {'name': 'PokemonGo-Bot', 'full_name': 'PokemonGoF/PokemonGo-Bot', 'description': 'The Pokemon Go Bot, baking with community.', 'url': 'https://github.com/PokemonGoF/PokemonGo-Bot', 'language': 'Python', 'stargazers_count': 3870, 'forks_count': 1543}]
+[{'name': 'spring-data-keyvalue-examples', 'full_name': 'spring-attic/spring-data-keyvalue-examples', 'description': 'Examples using Spring Data Key Values features', 'url': 'https://github.com/spring-attic/spring-data-keyvalue-examples', 'language': 'XSLT', 'stargazers_count': 436, 'forks_count': 318}, {'name': 'acf-dynamic-ajax-select-example', 'full_name': 'Hube2/acf-dynamic-ajax-select-example', 'description': 'Examples of dynamically loading values with AJAX based on other fields', 'url': 'https://github.com/Hube2/acf-dynamic-ajax-select-example', 'language': 'PHP', 'stargazers_count': 183, 'forks_count': 56}, {'name': 'key-value-example-app', 'full_name': 'EOSIO/key-value-example-app', 'description': 'An example app for using the key value database feature new to 2.1 of EOSIO.', 'url': 'https://github.com/EOSIO/key-value-example-app', 'language': 'TypeScript', 'stargazers_count': 11, 'forks_count': 16}]
 ```
 
-### hindi_quote
+### 14. Hindi Quote
 
-**Description**: Fetches a random Hindi quote.
-
-Returns:
-    str: The content of a random Hindi quote.
+> Fetches a random Hindi quote.
+> 
+> Returns:
+>     str: The content of a random Hindi quote.
 
 ```python
 from TheApi import api
@@ -363,16 +391,18 @@ result = await api.hindi_quote()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-हम जो है, उसके जिम्मेदार हम खुद है..और जो हम बनना चाहते है, वो बनने की शक्ति हम अपने अंदर रखते है।
+मुफ्त में नही सीखा उदासी मे मुस्कुराने का हुनर, इसके बदले ज़िन्दगी की हर खुशी तबाह की है
 ```
 
-### meme
+### 15. Meme
 
-**Description**: Fetches a random meme image URL.
-
-Returns:
-    str or None: The URL of the meme image if available, otherwise None.
+> Fetches a random meme image URL.
+> 
+> Returns:
+>     str or None: The URL of the meme image if available, otherwise None.
 
 ```python
 from TheApi import api
@@ -381,50 +411,55 @@ result = await api.meme()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-https://preview.redd.it/0b0ty73dp30e1.png?width=320&crop=smart&auto=webp&s=3e44f6896fb3647ecb9db60513e681ffb017cf38
+https://preview.redd.it/iqnolxv1130e1.png?width=960&crop=smart&auto=webp&s=aac306505d37c7dbed297674f39e10973ef8ff18
 ```
 
-### pypi
+### 16. Pypi
 
-**Description**: Retrieves metadata information about a specified Python package from the PyPI API.
-
-Args:
-    package_name (str): The name of the package to search for on PyPI.
-
-Returns:
-    dict or None: A dictionary with relevant package information if found, containing:
-        - name (str): Package name.
-        - version (str): Latest package version.
-        - summary (str): Short description of the package.
-        - author (str): Package author.
-        - author_email (str): Email of the package author.
-        - license (str): License type.
-        - home_page (str): URL of the package's homepage.
-        - package_url (str): URL of the package on PyPI.
-        - requires_python (str): Minimum Python version required.
-        - keywords (str): Keywords associated with the package.
-        - classifiers (list): List of PyPI classifiers.
-        - project_urls (dict): Additional project URLs (e.g., source code, documentation).
-    Returns None if the package is not found or there is an error.
+> Retrieves metadata information about a specified Python package from the PyPI API.
+> 
+> Args:
+>     package_name (str): The name of the package to search for on PyPI.
+> 
+> Returns:
+>     dict or None: A dictionary with relevant package information if found, containing:
+>         - name (str): Package name.
+>         - version (str): Latest package version.
+>         - summary (str): Short description of the package.
+>         - author (str): Package author.
+>         - author_email (str): Email of the package author.
+>         - license (str): License type.
+>         - home_page (str): URL of the package's homepage.
+>         - package_url (str): URL of the package on PyPI.
+>         - requires_python (str): Minimum Python version required.
+>         - keywords (str): Keywords associated with the package.
+>         - classifiers (list): List of PyPI classifiers.
+>         - project_urls (dict): Additional project URLs (e.g., source code, documentation).
+>     Returns None if the package is not found or there is an error.
 
 ```python
 from TheApi import api
 
-result = await api.pypi(package_name='pokemon')
+result = await api.pypi(package_name='example_value')
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-{'name': 'pokemon', 'version': '0.36', 'summary': 'ascii database of pokemon... in Python!', 'author': 'Vanessa Sochat', 'author_email': 'vsoch@noreply.github.users.com', 'license': 'LICENSE', 'home_page': 'https://github.com/vsoch/pokemon', 'package_url': 'https://pypi.org/project/pokemon/', 'requires_python': '', 'keywords': 'pokemon,avatar,ascii,gravatar', 'classifiers': [], 'project_urls': {'Homepage': 'https://github.com/vsoch/pokemon'}}
+# Error:
+Request failed: 404, message='Not Found', url='https://pypi.org/pypi/example_value/json'
 ```
 
-### quote
+### 17. Quote
 
-**Description**: Fetches a random quote.
-
-Returns:
-    str: The content of a random quote followed by the author's name.
+> Fetches a random quote.
+> 
+> Returns:
+>     str: The content of a random quote followed by the author's name.
 
 ```python
 from TheApi import api
@@ -433,18 +468,20 @@ result = await api.quote()
 print(result)
 ```
 
-```text
-That's the risk you take if you change: that people you've been involved with won't like the new you. But other people who do will come along.
+#### Expected Output
 
-author - Lisa Alther
+```text
+I think somehow, we learn who we really are and then live with that decision.
+
+author - Eleanor Roosevelt
 ```
 
-### random_word
+### 18. Random Word
 
-**Description**: Fetches a random word.
-
-Returns:
-    str: A random word if available; "None" if an error occurs.
+> Fetches a random word.
+> 
+> Returns:
+>     str: A random word if available; "None" if an error occurs.
 
 ```python
 from TheApi import api
@@ -453,16 +490,18 @@ result = await api.random_word()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-drift
+autoroute
 ```
 
-### riddle
+### 19. Riddle
 
-**Description**: Fetches a random riddle from the Riddles API.
-
-Returns:
-    dict: The riddle data in JSON format.
+> Fetches a random riddle from the Riddles API.
+> 
+> Returns:
+>     dict: The riddle data in JSON format.
 
 ```python
 from TheApi import api
@@ -471,99 +510,107 @@ result = await api.riddle()
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-{'riddle': 'The higher I climb, the hotter I engage, I can not escape my crystal cage. What am I?', 'answer': 'Mercury in a thermometer'}
+{'riddle': "I have four wings, but cannot fly, I never laugh and never cry; On the same spot I'm always found, toiling away with little sound. What am I?", 'answer': 'Holland. A Windmill'}
 ```
 
-### stackoverflow_search
+### 20. Stackoverflow Search
 
-**Description**: Searches Stack Overflow for questions based on a query, returning results sorted by relevance or another specified criteria.
-
-Args:
-    query (str): The search query string.
-    max_results (int, optional): The maximum number of results to return. Defaults to 3.
-    sort_type (str, optional): The sorting criteria for the results, such as "relevance" or "votes". Defaults to "relevance".
-
-Returns:
-    list: A list of search results in JSON format, with each entry containing Stack Overflow question details.
-
-Raises:
-    ValueError: If there is an issue with the request to the Stack Overflow API.
+> Searches Stack Overflow for questions based on a query, returning results sorted by relevance or another specified criteria.
+> 
+> Args:
+>     query (str): The search query string.
+>     max_results (int, optional): The maximum number of results to return. Defaults to 3.
+>     sort_type (str, optional): The sorting criteria for the results, such as "relevance" or "votes". Defaults to "relevance".
+> 
+> Returns:
+>     list: A list of search results in JSON format, with each entry containing Stack Overflow question details.
+> 
+> Raises:
+>     ValueError: If there is an issue with the request to the Stack Overflow API.
 
 ```python
 from TheApi import api
 
-result = await api.stackoverflow_search(query='pokemon', max_results=3, sort_type='relevance')
+result = await api.stackoverflow_search(query='example_value', max_results=3, sort_type='relevance')
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-[{'tags': ['ios', 'flutter', 'dart'], 'owner': {'account_id': 19921816, 'reputation': 3, 'user_id': 14597469, 'user_type': 'registered', 'profile_image': 'https://lh6.googleusercontent.com/-aT6u2l_JT94/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclcxb94zp_q0Q2R8DQN7b6X3kgo6w/s96-c/photo.jpg?sz=256', 'display_name': 'Senem Sedef', 'link': 'https://stackoverflow.com/users/14597469/senem-sedef'}, 'is_answered': False, 'view_count': 117, 'answer_count': 0, 'score': 0, 'last_activity_date': 1701515081, 'creation_date': 1622231772, 'last_edit_date': 1701515081, 'question_id': 67744802, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/67744802/the-getter-pokemon-was-called-on-null-receiver-null-tried-calling-pokemon', 'title': 'The getter &#39;pokemon&#39; was called on null. Receiver: null Tried calling: pokemon'}, {'tags': ['reactjs', 'random', 'axios'], 'owner': {'account_id': 17931576, 'reputation': 1, 'user_id': 13028884, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/7ebcdd2f784bca5dc54a1a0e17354f86?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'GieGie', 'link': 'https://stackoverflow.com/users/13028884/giegie'}, 'is_answered': False, 'view_count': 1966, 'answer_count': 2, 'score': 0, 'last_activity_date': 1652730812, 'creation_date': 1642222168, 'last_edit_date': 1642223800, 'question_id': 70718940, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/70718940/pokemon-api-request-generate-5-pok%c3%a9mon-at-a-time', 'title': 'Pokemon API request generate 5 Pok&#233;mon at a time'}, {'tags': ['java'], 'owner': {'account_id': 919945, 'reputation': 43, 'user_id': 951797, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/26b06d5d95992fa3780383abe5f49a3d?s=256&d=identicon&r=PG', 'display_name': 'Brian', 'link': 'https://stackoverflow.com/users/951797/brian'}, 'is_answered': True, 'view_count': 32624, 'accepted_answer_id': 7942409, 'answer_count': 3, 'score': 3, 'last_activity_date': 1577442848, 'creation_date': 1319931614, 'question_id': 7942384, 'content_license': 'CC BY-SA 3.0', 'link': 'https://stackoverflow.com/questions/7942384/simple-java-pokemon-fight-simulator', 'title': 'Simple Java Pokemon Fight Simulator'}]
+[{'tags': ['ansible', 'jinja2', 'ansible-inventory'], 'owner': {'account_id': 15739154, 'reputation': 1, 'user_id': 11357149, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/fcdbe1843c2a7ee7f99f7e4b9edc18c8?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'JuliusHerrmann', 'link': 'https://stackoverflow.com/users/11357149/juliusherrmann'}, 'is_answered': False, 'view_count': 474, 'answer_count': 2, 'score': 0, 'last_activity_date': 1684593095, 'creation_date': 1684538741, 'question_id': 76292947, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/76292947/why-does-ansible-not-evaluate-my-jinja2-template-variables-inside-a-for-loop', 'title': 'Why does Ansible not evaluate my jinja2 template variables inside a for loop?'}, {'tags': ['html', 'coding-style', 'naming-conventions'], 'owner': {'account_id': 68634, 'reputation': 35109, 'user_id': 200145, 'user_type': 'registered', 'accept_rate': 89, 'profile_image': 'https://i.sstatic.net/k71xd.jpg?s=256', 'display_name': 'Emanuil Rusev', 'link': 'https://stackoverflow.com/users/200145/emanuil-rusev'}, 'is_answered': True, 'view_count': 91005, 'closed_date': 1437362381, 'accepted_answer_id': 10412839, 'answer_count': 8, 'score': 132, 'last_activity_date': 1512413085, 'creation_date': 1257694135, 'last_edit_date': 1422808004, 'question_id': 1696864, 'link': 'https://stackoverflow.com/questions/1696864/naming-class-and-id-html-attributes-dashes-vs-underlines', 'closed_reason': 'Opinion-based', 'title': 'Naming &quot;class&quot; and &quot;id&quot; HTML attributes - dashes vs. underlines'}, {'tags': ['runtime', 'netcdf', 'python-xarray'], 'owner': {'account_id': 11149227, 'reputation': 25, 'user_id': 8183011, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/9247ca7eb2124638de10cb0e5c3dceca?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'Conni', 'link': 'https://stackoverflow.com/users/8183011/conni'}, 'is_answered': True, 'view_count': 1166, 'accepted_answer_id': 69480221, 'answer_count': 1, 'score': 1, 'last_activity_date': 1666689229, 'creation_date': 1632939409, 'last_edit_date': 1666689229, 'question_id': 69381537, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/69381537/runtime-warning-when-opening-netcdf-file-xarray-unable-to-decode-time-axis', 'title': 'Runtime warning when opening netcdf file. Xarray unable to decode time axis'}]
 ```
 
-### upload_image
+### 21. Upload Image
 
-**Description**: Uploads an image to https://envs.sh.
-
-Args:
-    file_path (Union[str, bytes, BytesIO]): The image file to upload.
-        Can be a file path (str), binary data (bytes), or a BytesIO object.
-
-Returns:
-    str: The URL or confirmation message of the uploaded image if the upload is successful.
-        Returns "Unexpected response format" if the response format is not as expected.
-
-Raises:
-    ValueError: If the file is not found, the input type is invalid,
-        or the upload request fails.
+> Uploads an image to https://envs.sh.
+> 
+> Args:
+>     file_path (Union[str, bytes, BytesIO]): The image file to upload.
+>         Can be a file path (str), binary data (bytes), or a BytesIO object.
+> 
+> Returns:
+>     str: The URL or confirmation message of the uploaded image if the upload is successful.
+>         Returns "Unexpected response format" if the response format is not as expected.
+> 
+> Raises:
+>     ValueError: If the file is not found, the input type is invalid,
+>         or the upload request fails.
 
 ```python
 from TheApi import api
 
-result = await api.upload_image(file_path='file/to/image')
+result = await api.upload_image(file_path='file/to/image.jpg')
 print(result)
 ```
+
+#### Expected Output
 
 ```text
 You will get the URL for the image.
 ```
 
-### wikipedia
+### 22. Wikipedia
 
-**Description**: Searches Wikipedia for a given query and retrieves the top result's summary, URL, and image.
-
-Args:
-    query (str): The search term to look up on Wikipedia.
-
-Returns:
-    dict: A dictionary containing information about the top search result, with keys:
-        - title (str): The title of the Wikipedia article.
-        - summary (str): A brief summary of the article's content.
-        - url (str): The URL link to the full Wikipedia article.
-        - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
-
-    If no results are found, returns a dictionary with an "error" key.
+> Searches Wikipedia for a given query and retrieves the top result's summary, URL, and image.
+> 
+> Args:
+>     query (str): The search term to look up on Wikipedia.
+> 
+> Returns:
+>     dict: A dictionary containing information about the top search result, with keys:
+>         - title (str): The title of the Wikipedia article.
+>         - summary (str): A brief summary of the article's content.
+>         - url (str): The URL link to the full Wikipedia article.
+>         - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
+> 
+>     If no results are found, returns a dictionary with an "error" key.
 
 ```python
 from TheApi import api
 
-result = await api.wikipedia(query='pokemon')
+result = await api.wikipedia(query='example_value')
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-{'title': 'Pokémon', 'summary': 'Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media. The franchise takes place in a shared universe in which humans co-exist with creatures known as Pokémon, a large variety of species endowed with special powers. The franchise\'s target audience is children aged 5 to 12, but it is known to attract people of all ages.\nThe franchise originated as a pair of role-playing games developed by Game Freak, from an original concept by its founder, Satoshi Tajiri. Released on the Game Boy on February 27, 1996, the games became sleeper hits and were followed by manga series, a trading card game, and anime series and films. From 1998 to 2000, Pokémon was exported to the rest of the world, creating an unprecedented global phenomenon dubbed "Pokémania". By 2002, the craze had ended, after which Pokémon became a fixture in popular culture, with new products being released to this day. In the summer of 2016, the franchise spawned a second craze with the release of Pokémon Go, an augmented reality game developed by Niantic. Pokémon has since been estimated to be the world\'s highest-grossing media franchise and one of the best-selling video game franchises.\nPokémon has an uncommon ownership structure. Unlike most IPs, which are owned by one company, Pokémon is jointly owned by three: Nintendo, Game Freak, and Creatures. Game Freak develops the core series role-playing games, which are published by Nintendo exclusively for their consoles, while Creatures manages the trading card game and related merchandise, occasionally developing spin-off titles. The three companies established The Pokémon Company (TPC) in 1998 to manage the Pokémon property within Asia. The Pokémon anime series and films are co-owned by Shogakukan. Since 2009, The Pokémon Company International (TPCi), a subsidiary of TPC, has managed the franchise in all regions outside of Asia.', 'url': 'https://en.wikipedia.org/?curid=23745', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/500px-International_Pok%C3%A9mon_logo.svg.png'}
+{'title': 'Boundary value problem', 'summary': "In the study of differential equations, a boundary-value problem is a differential equation subjected to constraints called boundary conditions. A solution to a boundary value problem is a solution to the differential equation which also satisfies the boundary conditions.\nBoundary value problems arise in several branches of physics as any physical differential equation will have them. Problems involving the wave equation, such as the determination of normal modes, are often stated as boundary value problems. A large class of important boundary value problems are the Sturm–Liouville problems. The analysis of these problems, in the linear case, involves the eigenfunctions of a differential operator.\nTo be useful in applications, a boundary value problem should be well posed.  This means that given the input to the problem there exists a unique solution, which depends continuously on the input.  Much theoretical work in the field of partial differential equations is devoted to proving that boundary value problems arising from scientific and engineering applications are in fact well-posed.\nAmong the earliest boundary value problems to be studied is the Dirichlet problem, of finding the harmonic functions (solutions to Laplace's equation); the solution was given by the Dirichlet's principle.\n\n", 'url': 'https://en.wikipedia.org/?curid=436779', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Boundary_value_problem-en.svg/500px-Boundary_value_problem-en.svg.png'}
 ```
 
-### words
+### 23. Words
 
-**Description**: Fetches a specified number of random words.
-
-Args:
-    num_words (int): The number of random words to retrieve.
-
-Returns:
-    list: A list of random words if available; an empty list if no response is received.
+> Fetches a specified number of random words.
+> 
+> Args:
+>     num_words (int): The number of random words to retrieve.
+> 
+> Returns:
+>     list: A list of random words if available; an empty list if no response is received.
 
 ```python
 from TheApi import api
@@ -572,34 +619,38 @@ result = await api.words(num_words=5)
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-['surras', 'cattlemen', 'pasterns', 'reliables', 'postman']
+['racoons', 'unsociably', 'pirate', 'furious', 'ornithoses']
 ```
 
-### write
+### 24. Write
 
-**Description**: Creates an image with text written on it, using a predefined template and font,
-and uploads the image after generation.
-
-Args:
-    text (str): The text to be written on the image. Text exceeding 55 characters
-                per line will be wrapped, with up to 25 lines displayed.
-
-Returns:
-    str: The URL of the uploaded image.
-
-Notes:
-    A temporary image file is created, saved, and removed after uploading.
+> Creates an image with text written on it, using a predefined template and font,
+> and uploads the image after generation.
+> 
+> Args:
+>     text (str): The text to be written on the image. Text exceeding 55 characters
+>                 per line will be wrapped, with up to 25 lines displayed.
+> 
+> Returns:
+>     str: The URL of the uploaded image.
+> 
+> Notes:
+>     A temporary image file is created, saved, and removed after uploading.
 
 ```python
 from TheApi import api
 
-result = await api.write(text='pokemon')
+result = await api.write(text='example_value')
 print(result)
 ```
 
+#### Expected Output
+
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_mwd4qVb7.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_9FPkXAHt.jpg
 ```
 
 
