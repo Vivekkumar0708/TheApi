@@ -69,7 +69,7 @@ print(result)
 #### Expected Output
 
 ```text
-['https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
+['https://www.smallbusinesscoach.org/wp-content/uploads/2021/03/list-of-values.jpg', 'https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
 ```
 
 ### 2. Blackpink
@@ -97,15 +97,13 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_ehzJWG7K.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_71G4fdWB.jpg
 ```
 
 ### 3. Carbon
 
 **Description**:
-Generates a code snippet image using the Carbon API, saves it to the downloads folder,
-**Description**:
-uploads it, and returns the URL of the uploaded image.
+Generates a code snippet image using the Carbon API, saves it to the downloads folder, uploads it, and returns the URL of the uploaded image.
 
 **Args:**
   - query (str): The code snippet to be rendered as an image.
@@ -123,7 +121,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_f7h4dlia.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_Bia2NbOd.png
 ```
 
 ### 4. Cat
@@ -144,7 +142,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/9sk.jpg
+https://cdn2.thecatapi.com/images/37k.jpg
 ```
 
 ### 5. Chatgpt
@@ -190,7 +188,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/e2f3e7bf-403c-45a4-8d48-80bdb781a514.jpg
+https://random.dog/3a085a78-900e-4206-a864-74c31d4d696b.jpg
 ```
 
 ### 7. Fox
@@ -211,7 +209,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=94
+https://randomfox.ca/?i=69
 ```
 
 ### 8. Gen Hashtag
@@ -258,7 +256,7 @@ print(result)
 #### Expected Output
 
 ```text
-Tell it like it is.
+You're not that important; it's what you do that counts.
 ```
 
 ### 10. Get Hindi Jokes
@@ -279,9 +277,7 @@ print(result)
 #### Expected Output
 
 ```text
-अबसे शादियों में ऐसे गाने बजेंगे.. 
-बाबुल से सेनेटाइजर लेती जा.. 
-जा तुझको कोरोना मुक्त परिवार मिले..!
+विवाह क्या है ? ... विवाह एक ऐसा गठबंधन है जिसमे में 2 लोग मिलकर उन समस्याओं को सुलझाने का जीवन भर प्रयास करते है जो पहले कभी थी ही नहीं 😂😂😂
 ```
 
 ### 11. Get Jokes
@@ -305,7 +301,7 @@ print(result)
 #### Expected Output
 
 ```text
-Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
+Never date a baker. They're too kneady.
 ```
 
 ### 12. Get Uselessfact
@@ -326,7 +322,7 @@ print(result)
 #### Expected Output
 
 ```text
-The ant always falls over on its right side when intoxicated.
+A palindrome is a sentence or group of sentences that reads the same backwards as it does forward: Ex:  `Red rum, sir, is murder.` `Ma is as selfless as I am.` `Nurse, I spy gypsies. Run!`  `A man, a plan, a canal - Panama.` `He lived as a devil, eh?`
 ```
 
 ### 13. Github Search
@@ -337,18 +333,16 @@ Searches GitHub for various types of content.
 **Args:**
   - query (str): The search query.
   - search_type (str, optional): The type of search. Can be one of:
-  - - "repositories"
-  - - "users"
-  - - "organizations"
-  - - "issues"
-  - - "pull_requests"
-  - - "commits"
-  - - "topics"
+    - "repositories"
+    - "users"
+    - "organizations"
+    - "issues"
+    - "pull_requests"
+    - "commits"
+    - "topics"
 
 **Description**:
-Defaults to "repositories".
-**Description**:
-max_results (int, optional): The maximum number of results to return. Defaults to 3.
+Defaults to "repositories". max_results (int, optional): The maximum number of results to return. Defaults to 3.
 
 **Returns:**
   - list: A list of search results or an error message.
@@ -384,7 +378,7 @@ print(result)
 #### Expected Output
 
 ```text
-जिसने भी खुद को खर्च किया है दुनिया ने उसी को Google पर search किया है
+किसी को लात मारने से पहले हम खुद कहाँ खड़े है इसका पता होना चाहिए..
 ```
 
 ### 15. Meme
@@ -405,7 +399,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/rp5x7xdqm10e1.png?width=1080&crop=smart&auto=webp&s=82aa08d5dd71a9ce2365380d820b9e33dbd2b86f
+https://preview.redd.it/gaidz65x000e1.png?width=640&crop=smart&auto=webp&s=5fac6fa71a3b7b68a7575a83cc5d2b14cd672c8c
 ```
 
 ### 16. Pypi
@@ -418,19 +412,19 @@ Retrieves metadata information about a specified Python package from the PyPI AP
 
 **Returns:**
   - dict or None: A dictionary with relevant package information if found, containing:
-  - - name (str): Package name.
-  - - version (str): Latest package version.
-  - - summary (str): Short description of the package.
-  - - author (str): Package author.
-  - - author_email (str): Email of the package author.
-  - - license (str): License type.
-  - - home_page (str): URL of the package's homepage.
-  - - package_url (str): URL of the package on PyPI.
-  - - requires_python (str): Minimum Python version required.
-  - - keywords (str): Keywords associated with the package.
-  - - classifiers (list): List of PyPI classifiers.
-  - - project_urls (dict): Additional project URLs (e.g., source code, documentation).
-  - Returns None if the package is not found or there is an error.
+    - name (str): Package name.
+    - version (str): Latest package version.
+    - summary (str): Short description of the package.
+    - author (str): Package author.
+    - author_email (str): Email of the package author.
+    - license (str): License type.
+    - home_page (str): URL of the package's homepage.
+    - package_url (str): URL of the package on PyPI.
+    - requires_python (str): Minimum Python version required.
+    - keywords (str): Keywords associated with the package.
+    - classifiers (list): List of PyPI classifiers.
+    - project_urls (dict): Additional project URLs (e.g., source code, documentation).
+    Returns None if the package is not found or there is an error.
 
 ```python
 from TheApi import api
@@ -464,9 +458,9 @@ print(result)
 #### Expected Output
 
 ```text
-Sports do not build character. They reveal it.
+O, what a tangled web we weave when first we practice to deceive!
 
-author - Heywood Broun
+author - Walter Scott
 ```
 
 ### 18. Random Word
@@ -487,7 +481,7 @@ print(result)
 #### Expected Output
 
 ```text
-crying
+soleus
 ```
 
 ### 19. Riddle
@@ -508,7 +502,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': "The strangest creature you'll ever find: Two eyes in front and many many more behind.", 'answer': 'A Peacock'}
+{'riddle': 'Whoever makes it, tells it not. Whoever takes it, knows it not. And whoever knows it wants it not.', 'answer': 'Counterfeit money'}
 ```
 
 ### 20. Stackoverflow Search
@@ -537,7 +531,7 @@ print(result)
 #### Expected Output
 
 ```text
-[{'tags': ['ansible', 'jinja2', 'ansible-inventory'], 'owner': {'account_id': 15739154, 'reputation': 1, 'user_id': 11357149, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/fcdbe1843c2a7ee7f99f7e4b9edc18c8?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'JuliusHerrmann', 'link': 'https://stackoverflow.com/users/11357149/juliusherrmann'}, 'is_answered': False, 'view_count': 474, 'answer_count': 2, 'score': 0, 'last_activity_date': 1684593095, 'creation_date': 1684538741, 'question_id': 76292947, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/76292947/why-does-ansible-not-evaluate-my-jinja2-template-variables-inside-a-for-loop', 'title': 'Why does Ansible not evaluate my jinja2 template variables inside a for loop?'}, {'tags': ['html', 'coding-style', 'naming-conventions'], 'owner': {'account_id': 68634, 'reputation': 35109, 'user_id': 200145, 'user_type': 'registered', 'accept_rate': 89, 'profile_image': 'https://i.sstatic.net/k71xd.jpg?s=256', 'display_name': 'Emanuil Rusev', 'link': 'https://stackoverflow.com/users/200145/emanuil-rusev'}, 'is_answered': True, 'view_count': 91005, 'closed_date': 1437362381, 'accepted_answer_id': 10412839, 'answer_count': 8, 'score': 132, 'last_activity_date': 1512413085, 'creation_date': 1257694135, 'last_edit_date': 1422808004, 'question_id': 1696864, 'link': 'https://stackoverflow.com/questions/1696864/naming-class-and-id-html-attributes-dashes-vs-underlines', 'closed_reason': 'Opinion-based', 'title': 'Naming &quot;class&quot; and &quot;id&quot; HTML attributes - dashes vs. underlines'}, {'tags': ['runtime', 'netcdf', 'python-xarray'], 'owner': {'account_id': 11149227, 'reputation': 25, 'user_id': 8183011, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/9247ca7eb2124638de10cb0e5c3dceca?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'Conni', 'link': 'https://stackoverflow.com/users/8183011/conni'}, 'is_answered': True, 'view_count': 1166, 'accepted_answer_id': 69480221, 'answer_count': 1, 'score': 1, 'last_activity_date': 1666689229, 'creation_date': 1632939409, 'last_edit_date': 1666689229, 'question_id': 69381537, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/69381537/runtime-warning-when-opening-netcdf-file-xarray-unable-to-decode-time-axis', 'title': 'Runtime warning when opening netcdf file. Xarray unable to decode time axis'}]
+[{'tags': ['ansible', 'jinja2', 'ansible-inventory'], 'owner': {'account_id': 15739154, 'reputation': 1, 'user_id': 11357149, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/fcdbe1843c2a7ee7f99f7e4b9edc18c8?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'JuliusHerrmann', 'link': 'https://stackoverflow.com/users/11357149/juliusherrmann'}, 'is_answered': False, 'view_count': 475, 'answer_count': 2, 'score': 0, 'last_activity_date': 1684593095, 'creation_date': 1684538741, 'question_id': 76292947, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/76292947/why-does-ansible-not-evaluate-my-jinja2-template-variables-inside-a-for-loop', 'title': 'Why does Ansible not evaluate my jinja2 template variables inside a for loop?'}, {'tags': ['html', 'coding-style', 'naming-conventions'], 'owner': {'account_id': 68634, 'reputation': 35109, 'user_id': 200145, 'user_type': 'registered', 'accept_rate': 89, 'profile_image': 'https://i.sstatic.net/k71xd.jpg?s=256', 'display_name': 'Emanuil Rusev', 'link': 'https://stackoverflow.com/users/200145/emanuil-rusev'}, 'is_answered': True, 'view_count': 91007, 'closed_date': 1437362381, 'accepted_answer_id': 10412839, 'answer_count': 8, 'score': 132, 'last_activity_date': 1512413085, 'creation_date': 1257694135, 'last_edit_date': 1422808004, 'question_id': 1696864, 'link': 'https://stackoverflow.com/questions/1696864/naming-class-and-id-html-attributes-dashes-vs-underlines', 'closed_reason': 'Opinion-based', 'title': 'Naming &quot;class&quot; and &quot;id&quot; HTML attributes - dashes vs. underlines'}, {'tags': ['runtime', 'netcdf', 'python-xarray'], 'owner': {'account_id': 11149227, 'reputation': 25, 'user_id': 8183011, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/9247ca7eb2124638de10cb0e5c3dceca?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'Conni', 'link': 'https://stackoverflow.com/users/8183011/conni'}, 'is_answered': True, 'view_count': 1166, 'accepted_answer_id': 69480221, 'answer_count': 1, 'score': 1, 'last_activity_date': 1666689229, 'creation_date': 1632939409, 'last_edit_date': 1666689229, 'question_id': 69381537, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/69381537/runtime-warning-when-opening-netcdf-file-xarray-unable-to-decode-time-axis', 'title': 'Runtime warning when opening netcdf file. Xarray unable to decode time axis'}]
 ```
 
 ### 21. Upload Image
@@ -581,10 +575,10 @@ Searches Wikipedia for a given query and retrieves the top result's summary, URL
 
 **Returns:**
   - dict: A dictionary containing information about the top search result, with keys:
-  - - title (str): The title of the Wikipedia article.
-  - - summary (str): A brief summary of the article's content.
-  - - url (str): The URL link to the full Wikipedia article.
-  - - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
+    - title (str): The title of the Wikipedia article.
+    - summary (str): A brief summary of the article's content.
+    - url (str): The URL link to the full Wikipedia article.
+    - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
 
 **Description**:
 If no results are found, returns a dictionary with an "error" key.
@@ -599,7 +593,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'title': 'Boundary value problem', 'summary': "In the study of differential equations, a boundary-value problem is a differential equation subjected to constraints called boundary conditions. A solution to a boundary value problem is a solution to the differential equation which also satisfies the boundary conditions.\nBoundary value problems arise in several branches of physics as any physical differential equation will have them. Problems involving the wave equation, such as the determination of normal modes, are often stated as boundary value problems. A large class of important boundary value problems are the Sturm–Liouville problems. The analysis of these problems, in the linear case, involves the eigenfunctions of a differential operator.\nTo be useful in applications, a boundary value problem should be well posed.  This means that given the input to the problem there exists a unique solution, which depends continuously on the input.  Much theoretical work in the field of partial differential equations is devoted to proving that boundary value problems arising from scientific and engineering applications are in fact well-posed.\nAmong the earliest boundary value problems to be studied is the Dirichlet problem, of finding the harmonic functions (solutions to Laplace's equation); the solution was given by the Dirichlet's principle.\n\n", 'url': 'https://en.wikipedia.org/?curid=436779', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Boundary_value_problem-en.svg/500px-Boundary_value_problem-en.svg.png'}
+{'title': 'Boundary value problem', 'summary': "In the study of differential equations, a boundary-value problem is a differential equation subjected to constraints called boundary conditions. A solution to a boundary value problem is a solution to the differential equation which also satisfies the boundary conditions.\nBoundary value problems arise in several branches of physics as any physical differential equation will have them. Problems involving the wave equation, such as the determination of normal modes, are often stated as boundary value problems. A large class of important boundary value problems are the Sturm–Liouville problems. The analysis of these problems, in the linear case, involves the eigenfunctions of a differential operator.\nTo be useful in applications, a boundary value problem should be well posed.  This means that given the input to the problem there exists a unique solution, which depends continuously on the input.  Much theoretical work in the field of partial differential equations is devoted to proving that boundary value problems arising from scientific and engineering applications are in fact well-posed.\nAmong the earliest boundary value problems to be studied is the Dirichlet problem, of finding the harmonic functions (solutions to Laplace's equation); the solution was given by the Dirichlet's principle.", 'url': 'https://en.wikipedia.org/?curid=436779', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Boundary_value_problem-en.svg/500px-Boundary_value_problem-en.svg.png'}
 ```
 
 ### 23. Words
@@ -623,15 +617,13 @@ print(result)
 #### Expected Output
 
 ```text
-['comedos', 'millets', 'unendurably', 'inobservances', 'perpetuator']
+['chalybeate', 'cellarage', 'paralanguages', 'composition', 'palliates']
 ```
 
 ### 24. Write
 
 **Description**:
-Creates an image with text written on it, using a predefined template and font,
-**Description**:
-and uploads the image after generation.
+Creates an image with text written on it, using a predefined template and font, and uploads the image after generation.
 
 **Args:**
   - text (str): The text to be written on the image. Text exceeding 55 characters
@@ -641,9 +633,7 @@ and uploads the image after generation.
   - str: The URL of the uploaded image.
 
 **Description**:
-Notes:
-**Description**:
-A temporary image file is created, saved, and removed after uploading.
+Notes: A temporary image file is created, saved, and removed after uploading.
 
 ```python
 from TheApi import api
@@ -655,7 +645,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_QhFLyJ0q.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_avImsYZD.jpg
 ```
 
 
