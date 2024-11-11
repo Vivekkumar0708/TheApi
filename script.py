@@ -26,18 +26,24 @@ def format_docstring(docstring):
 
     for line in lines:
         stripped_line = line.strip()
-        
+
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            formatted_lines.append(f"**{stripped_line}**")  # Section header without bullet
+            # Section header without bullet
+            formatted_lines.append(f"**{stripped_line}**")
             in_section = True
         elif in_section and line.startswith("    "):
-            formatted_lines.append(f"  - {line.strip()}")  # Indented bullet for items in Args/Returns
+            # Indented bullet for items in Args/Returns
+            formatted_lines.append(f"  - {line.strip()}")
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
         else:
             # Regular description line
-            formatted_lines.append(f"**Description**:\n{stripped_line}") if not in_section else formatted_lines.append(stripped_line)
+            (
+                formatted_lines.append(f"**Description**:\n{stripped_line}")
+                if not in_section
+                else formatted_lines.append(stripped_line)
+            )
             in_section = False
 
     return "\n".join(formatted_lines)
