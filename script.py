@@ -55,7 +55,9 @@ async def generate_api_status(methods):
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        status_content.append(f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | ")
+        status_content.append(
+            f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | "
+        )
 
         # Preserve Google-style docstring formatting in Markdown
         formatted_docstring = format_docstring(docstring)
