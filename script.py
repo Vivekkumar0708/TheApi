@@ -40,6 +40,7 @@ def format_docstring(docstring):
 
     return "\n".join(formatted_lines)
 
+
 async def generate_api_status(methods):
     function_statuses = []
     readme_content = []
