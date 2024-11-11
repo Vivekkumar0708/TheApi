@@ -19,30 +19,30 @@ Below, we’ll cover each function, providing examples and expected results so y
 
 | Function           | Status |
 |--------------------|--------|
-| [Bing Image](#bing_image) | ✅
-| [Blackpink](#blackpink) | ✅
-| [Carbon](#carbon) | ✅
-| [Cat](#cat) | ✅
-| [Chatgpt](#chatgpt) | ❌
-| [Dog](#dog) | ✅
-| [Fox](#fox) | ✅
-| [Gen Hashtag](#gen_hashtag) | ✅
-| [Get Advice](#get_advice) | ✅
-| [Get Hindi Jokes](#get_hindi_jokes) | ✅
-| [Get Jokes](#get_jokes) | ✅
-| [Get Uselessfact](#get_uselessfact) | ✅
-| [Github Search](#github_search) | ✅
-| [Hindi Quote](#hindi_quote) | ✅
-| [Meme](#meme) | ✅
-| [Pypi](#pypi) | ❌
-| [Quote](#quote) | ✅
-| [Random Word](#random_word) | ✅
-| [Riddle](#riddle) | ✅
-| [Stackoverflow Search](#stackoverflow_search) | ✅
-| [Upload Image](#upload_image) | ✅
-| [Wikipedia](#wikipedia) | ✅
-| [Words](#words) | ✅
-| [Write](#write) | ✅
+| [1. Bing Image](#1-bing-image) | ✅
+| [2. Blackpink](#2-blackpink) | ✅
+| [3. Carbon](#3-carbon) | ✅
+| [4. Cat](#4-cat) | ✅
+| [5. Chatgpt](#5-chatgpt) | ❌
+| [6. Dog](#6-dog) | ✅
+| [7. Fox](#7-fox) | ✅
+| [8. Gen Hashtag](#8-gen-hashtag) | ✅
+| [9. Get Advice](#9-get-advice) | ✅
+| [10. Get Hindi Jokes](#10-get-hindi-jokes) | ✅
+| [11. Get Jokes](#11-get-jokes) | ✅
+| [12. Get Uselessfact](#12-get-uselessfact) | ✅
+| [13. Github Search](#13-github-search) | ✅
+| [14. Hindi Quote](#14-hindi-quote) | ✅
+| [15. Meme](#15-meme) | ✅
+| [16. Pypi](#16-pypi) | ❌
+| [17. Quote](#17-quote) | ✅
+| [18. Random Word](#18-random-word) | ✅
+| [19. Riddle](#19-riddle) | ✅
+| [20. Stackoverflow Search](#20-stackoverflow-search) | ✅
+| [21. Upload Image](#21-upload-image) | ❌
+| [22. Wikipedia](#22-wikipedia) | ✅
+| [23. Words](#23-words) | ✅
+| [24. Write](#24-write) | ✅
 
 
 ## 🎓 How to Use Each Function
@@ -69,7 +69,7 @@ print(result)
 #### Expected Output
 
 ```text
-['https://www.saturdaygift.com/wp-content/uploads/Core-Values-List-192-Personal-Values-by-Categories-Horizontal-Green-SaturdayGift-1024x791.jpg', 'https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png']
+['https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://thomasgriffin.com/wp-content/uploads/2023/04/core-value-examples.png', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
 ```
 
 ### 2. Blackpink
@@ -97,7 +97,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_ThRVeTXW.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_ehzJWG7K.jpg
 ```
 
 ### 3. Carbon
@@ -123,7 +123,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_FxIL5va7.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_f7h4dlia.png
 ```
 
 ### 4. Cat
@@ -144,7 +144,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/ag6.png
+https://cdn2.thecatapi.com/images/9sk.jpg
 ```
 
 ### 5. Chatgpt
@@ -169,7 +169,7 @@ print(result)
 
 ```text
 # Error:
-ValueError: Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=example_value&model=gpt-4o'
+Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=example_value&model=gpt-4o'
 ```
 
 ### 6. Dog
@@ -190,7 +190,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/b5df024a-9dfd-4910-974d-44a2c0e7e3f2.mp4
+https://random.dog/e2f3e7bf-403c-45a4-8d48-80bdb781a514.jpg
 ```
 
 ### 7. Fox
@@ -211,7 +211,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=64
+https://randomfox.ca/?i=94
 ```
 
 ### 8. Gen Hashtag
@@ -258,7 +258,7 @@ print(result)
 #### Expected Output
 
 ```text
-Avoid mixing Ginger Nuts with other biscuits, they contaminate. Keep separated.
+Tell it like it is.
 ```
 
 ### 10. Get Hindi Jokes
@@ -279,7 +279,9 @@ print(result)
 #### Expected Output
 
 ```text
-शादी के दो दिन बाद दूल्हा उस ब्यूटी पार्लर में गया जहां से उसकी बीवी ने शादी के लिए मेकअप करवाया था उसने पार्लर वाली मैडम को आईफोन 7 गिफ्ट किया और थैंक्यू बोलकर चला आया मैडम ने खुशी खुशी आईफोन का डब्बा खोला तो उसमें नोकिया 1100 पड़ा था साथ में एक पर्ची भी थी जिस पर लिखा था मुझे भी ऐसा ही महसूस हुआ था😆🤣😋😉 
+अबसे शादियों में ऐसे गाने बजेंगे.. 
+बाबुल से सेनेटाइजर लेती जा.. 
+जा तुझको कोरोना मुक्त परिवार मिले..!
 ```
 
 ### 11. Get Jokes
@@ -303,7 +305,7 @@ print(result)
 #### Expected Output
 
 ```text
-If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.
+Java is like Alzheimer's, it starts off slow, but eventually, your memory is gone.
 ```
 
 ### 12. Get Uselessfact
@@ -324,7 +326,7 @@ print(result)
 #### Expected Output
 
 ```text
-The sweat drops drawn in cartoon comic strips are called pleuts.
+The ant always falls over on its right side when intoxicated.
 ```
 
 ### 13. Github Search
@@ -382,7 +384,7 @@ print(result)
 #### Expected Output
 
 ```text
-सैर कर दुनिया की ग़ाफ़िल ज़िंदगानी फिर कहाँ, जिंदगी गर कुछ रहीं तो ये जवानी फिर कहाँ- ख़्वाजा मीर दर्द
+जिसने भी खुद को खर्च किया है दुनिया ने उसी को Google पर search किया है
 ```
 
 ### 15. Meme
@@ -403,7 +405,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/3dswrfecw20e1.png?width=640&crop=smart&auto=webp&s=0b0b4a560a2085ac55568503eee441233863b474
+https://preview.redd.it/rp5x7xdqm10e1.png?width=1080&crop=smart&auto=webp&s=82aa08d5dd71a9ce2365380d820b9e33dbd2b86f
 ```
 
 ### 16. Pypi
@@ -441,7 +443,7 @@ print(result)
 
 ```text
 # Error:
-ValueError: Request failed: 404, message='Not Found', url='https://pypi.org/pypi/example_value/json'
+Request failed: 404, message='Not Found', url='https://pypi.org/pypi/example_value/json'
 ```
 
 ### 17. Quote
@@ -462,9 +464,9 @@ print(result)
 #### Expected Output
 
 ```text
-When you realize there is nothing lacking, the whole world belongs to you.
+Sports do not build character. They reveal it.
 
-author - Laozi
+author - Heywood Broun
 ```
 
 ### 18. Random Word
@@ -485,7 +487,7 @@ print(result)
 #### Expected Output
 
 ```text
-fluidrams
+crying
 ```
 
 ### 19. Riddle
@@ -506,7 +508,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': 'I am the fountain from which no one can drink. For many I am considered a necessary link. Like gold to all I am sought for, But my continued death brings wealth for all to want more. .What am I?', 'answer': 'Oil'}
+{'riddle': "The strangest creature you'll ever find: Two eyes in front and many many more behind.", 'answer': 'A Peacock'}
 ```
 
 ### 20. Stackoverflow Search
@@ -558,14 +560,15 @@ Uploads an image to https://envs.sh.
 ```python
 from TheApi import api
 
-result = await api.upload_image(file_path='file/to/image.jpg')
+result = await api.upload_image(file_path='example_value')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-You will get the URL for the image.
+# Error:
+File not found: 'example_value' - Ensure the file path is correct.
 ```
 
 ### 22. Wikipedia
@@ -620,7 +623,7 @@ print(result)
 #### Expected Output
 
 ```text
-['comsymps', 'tumidnesses', 'junker', 'covenanted', 'avengeful']
+['comedos', 'millets', 'unendurably', 'inobservances', 'perpetuator']
 ```
 
 ### 24. Write
@@ -652,7 +655,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_Qag6kgqZ.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_QhFLyJ0q.jpg
 ```
 
 
