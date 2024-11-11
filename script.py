@@ -32,10 +32,14 @@ async def generate_api_status(methods):
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        preface_content.append(f"{function_count}. [{name.replace('_', ' ').title()}](#{name.lower()})")
+        preface_content.append(
+            f"{function_count}. [{name.replace('_', ' ').title()}](#{name.lower()})"
+        )
 
         # Preserve Google style docstring formatting
-        formatted_docstring = "\n".join([f"> {line}" for line in docstring.splitlines()])
+        formatted_docstring = "\n".join(
+            [f"> {line}" for line in docstring.splitlines()]
+        )
 
         if name == "upload_image":
             status = "✅"
