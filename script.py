@@ -20,14 +20,25 @@ async def test_method(method, *args):
 
 
 def format_docstring(docstring):
-    """Formats docstring in Markdown to preserve Google-style formatting."""
     lines = docstring.splitlines()
     formatted_lines = []
+    in_args_or_returns = False
+
     for line in lines:
-        if line.strip() == "":
+        if line.strip() in ["Args:", "Returns:", "Raises:"]:
+            formatted_lines.append(f">\n> **{line.strip()}**")
+            in_args_or_returns = True
+        elif in_args_or_returns and line.startswith("    "):
+            # Indent items within Args, Returns, etc.
+            formatted_lines.append(f">     {line.strip()}")
+        elif line.strip() == "":
+            # Blank line, maintain spacing
             formatted_lines.append(">")
+            in_args_or_returns = False
         else:
-            formatted_lines.append(f"> {line}")
+            # General description line
+            formatted_lines.append(f"> {line.strip()}")
+            in_args_or_returns = False
     return "\n".join(formatted_lines)
 
 
@@ -44,9 +55,7 @@ async def generate_api_status(methods):
 
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
-        status_content.append(
-            f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | "
-        )
+        status_content.append(f"| [{name.replace('_', ' ').title()}](#{name.lower()}) | ")
 
         # Preserve Google-style docstring formatting in Markdown
         formatted_docstring = format_docstring(docstring)
