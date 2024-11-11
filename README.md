@@ -6,6 +6,8 @@ pip install git+https://github.com/Vivekkumar-IN/TheApi@main
 
 ---
 
+- hii
+  - hello
 # 📘 API Documentation
 
 Welcome to the **TheApi**! This library allows you to easily interact with the API using both **synchronous** and **asynchronous** options.
