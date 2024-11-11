@@ -1,6 +1,10 @@
 name: API Status Script
 
 on:
+on:
+  push:
+    paths:
+    - "**.py"
   workflow_dispatch:
 jobs:
   run-and-commit:
