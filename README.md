@@ -20,7 +20,7 @@ Below, we’ll cover each function, providing examples and expected results so y
 | Function           | Status |
 |--------------------|--------|
 | [Bing Image](#bing_image) | ✅
-| [Blackpink](#blackpink) | ✅
+| [Blackpink](#2-blackpink) | ✅
 | [Carbon](#carbon) | ✅
 | [Cat](#cat) | ✅
 | [Chatgpt](#chatgpt) | ❌
