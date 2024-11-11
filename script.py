@@ -29,25 +29,30 @@ def format_docstring(docstring):
         stripped_line = line.strip()
 
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            formatted_lines.append(f"**{stripped_line}**")  # Section header without bullet
+            # Section header without bullet
+            formatted_lines.append(f"**{stripped_line}**")
             in_section = True
             nested_item = False
         elif in_section and line.startswith("    "):
             if stripped_line.startswith("-"):
-                formatted_lines.append(f"    {stripped_line}")  # Additional indentation for nested list items
+                # Additional indentation for nested list items
+                formatted_lines.append(f"    {stripped_line}")
                 nested_item = True
             else:
                 if nested_item:
-                    formatted_lines.append(f"    {stripped_line}")  # Keep items aligned within nested structure
+                    # Keep items aligned within nested structure
+                    formatted_lines.append(f"    {stripped_line}")
                 else:
-                    formatted_lines.append(f"  - {stripped_line}")  # Indented bullet for primary items
+                    # Indented bullet for primary items
+                    formatted_lines.append(f"  - {stripped_line}")
                 nested_item = False
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
         else:
             if formatted_lines and formatted_lines[-1].startswith("**Description**"):
-                formatted_lines[-1] += f" {stripped_line}"  # Append to description line if already exists
+                # Append to description line if already exists
+                formatted_lines[-1] += f" {stripped_line}"
             else:
                 formatted_lines.append(f"**Description**:\n{stripped_line}")
             in_section = False
