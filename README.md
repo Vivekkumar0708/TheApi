@@ -39,7 +39,7 @@ Below, we’ll cover each function, providing examples and expected results so y
 | [18. Random Word](#18-random-word) | ✅
 | [19. Riddle](#19-riddle) | ✅
 | [20. Stackoverflow Search](#20-stackoverflow-search) | ✅
-| [21. Upload Image](#21-upload-image) | ❌
+| [21. Upload Image](#21-upload-image) | ✅
 | [22. Wikipedia](#22-wikipedia) | ✅
 | [23. Words](#23-words) | ✅
 | [24. Write](#24-write) | ✅
@@ -80,9 +80,9 @@ Creates a stylized "Blackpink"-themed image with custom text, color, and optiona
 **Args:**
   - **query (str)**: The text to display on the image.
   - **color (str, optional)**: The primary color of the text and gradient background in hex format.
-  - Defaults to "#ff94e0" (a pink shade).
+    Defaults to "#ff94e0" (a pink shade).
   - **border_color (str, optional)**: The color of the image border in hex format.
-  - If not provided, defaults to the value of `color`.
+    If not provided, defaults to the value of `color`.
 
 **Returns:**
   - **FilePath**: The file path of the generated image with delete attribute.
@@ -97,7 +97,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_DIqsTxJc.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_j6bMYD03.jpg
 ```
 
 ### 3. Carbon
@@ -121,7 +121,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_oINl6wUI.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_Rfb8V90x.png
 ```
 
 ### 4. Cat
@@ -142,7 +142,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/d2m.jpg
+https://cdn2.thecatapi.com/images/7fq.jpg
 ```
 
 ### 5. Chatgpt
@@ -166,7 +166,6 @@ print(result)
 #### Expected Output
 
 ```text
-# Error:
 Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=Pokemon&model=gpt-4o'
 ```
 
@@ -188,7 +187,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/5cd73551-c42b-4c0f-bd80-634998e9a128.jpg
+https://random.dog/1b5d7726-f401-4f35-aff5-3ec47f0bf47b.mp4
 ```
 
 ### 7. Fox
@@ -209,7 +208,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=99
+https://randomfox.ca/?i=112
 ```
 
 ### 8. Gen Hashtag
@@ -223,7 +222,7 @@ Generates hashtags based on a given keyword.
 
 **Returns:**
   - **str or tuple**: A string of top hashtags if `similar` is False.
-  - If `similar` is True, returns a tuple with top hashtags and similar hashtags.
+    If `similar` is True, returns a tuple with top hashtags and similar hashtags.
 
 ```python
 from TheApi import api
@@ -256,7 +255,7 @@ print(result)
 #### Expected Output
 
 ```text
-Respect other people's opinions, even when they differ from your own.
+Eat food. Not too much, mostly plants.
 ```
 
 ### 10. Get Hindi Jokes
@@ -277,7 +276,8 @@ print(result)
 #### Expected Output
 
 ```text
-आज online तथा विविध app के वजह से लोग प्रत्यक्ष ना मिलते हुए एक आभासी जीवन जी रहे है जो रमी खेलने के बहाने मिलते थे वह भी आज कल रमी app द्वारा ही खेलते है इसलिए मैं दारु पीने के बहाने मिलने वाले लोगों का आदर करता हूँ मिल बैठने की संस्कृती इन्हीं लोगों ने जिंदा रखी है 😆🤣😋😉
+पप्पू की वाईफ रोमांटिक मूड मे थी पूरे बैड पर बाँहे फैला कर लेट गयी, और पप्पू से बोली कुछ समझे?   
+पप्पू- समझ गया आज तू पूरे बैड पर सोना चाहती है न डायन. 😆🤣😋😉
 ```
 
 ### 11. Get Jokes
@@ -322,7 +322,7 @@ print(result)
 #### Expected Output
 
 ```text
-Crocodiles and alligators are surprisingly fast on land.  Although they are rapid, they are not agile.  So, if being chased by one, run in a zigzag line to lose him or her.
+The three most recognized Western names in China are Jesus Christ, Richard Nixon, & Elvis Presley.
 ```
 
 ### 13. Github Search
@@ -333,13 +333,13 @@ Searches GitHub for various types of content.
 **Args:**
   - **query (str)**: The search query.
   - **search_type (str, optional)**: The type of search. Can be one of:
-  - - "repositories"
-  - - "users"
-  - - "organizations"
-  - - "issues"
-  - - "pull_requests"
-  - - "commits"
-  - - "topics"
+    - "repositories"
+    - "users"
+    - "organizations"
+    - "issues"
+    - "pull_requests"
+    - "commits"
+    - "topics"
 
 **Description**:
 Defaults to "repositories". max_results (int, optional): The maximum number of results to return. Defaults to 3.
@@ -378,7 +378,7 @@ print(result)
 #### Expected Output
 
 ```text
-वसीयत अपने नाम लिखने से कुछ नही होता, ये तो उड़ान तय करती है कि आसमान किसका होगा।
+रो-रो के इश्क को ना तमाशा बनाईये जीने की आरज़ू है तो धोखे भी खाईये!
 ```
 
 ### 15. Meme
@@ -399,7 +399,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/u8xhz3diec0e1.png?width=1080&crop=smart&auto=webp&s=6ed236965692ded215c8fe25e66672093582a7f4
+https://preview.redd.it/e9tltqzun30e1.png?width=320&crop=smart&auto=webp&s=ba450f6576c8eb906bc760288d979185053bfbaa
 ```
 
 ### 16. Pypi
@@ -412,19 +412,19 @@ Retrieves metadata information about a specified Python package from the PyPI AP
 
 **Returns:**
   - **dict or None**: A dictionary with relevant package information if found, containing:
-  - - name (str): Package name.
-  - - version (str): Latest package version.
-  - - summary (str): Short description of the package.
-  - - author (str): Package author.
-  - - author_email (str): Email of the package author.
-  - - license (str): License type.
-  - - home_page (str): URL of the package's homepage.
-  - - package_url (str): URL of the package on PyPI.
-  - - requires_python (str): Minimum Python version required.
-  - - keywords (str): Keywords associated with the package.
-  - - classifiers (list): List of PyPI classifiers.
-  - - project_urls (dict): Additional project URLs (e.g., source code, documentation).
-  - Returns None if the package is not found or there is an error.
+    - name (str): Package name.
+    - version (str): Latest package version.
+    - summary (str): Short description of the package.
+    - author (str): Package author.
+    - author_email (str): Email of the package author.
+    - license (str): License type.
+    - home_page (str): URL of the package's homepage.
+    - package_url (str): URL of the package on PyPI.
+    - requires_python (str): Minimum Python version required.
+    - keywords (str): Keywords associated with the package.
+    - classifiers (list): List of PyPI classifiers.
+    - project_urls (dict): Additional project URLs (e.g., source code, documentation).
+    Returns None if the package is not found or there is an error.
 
 ```python
 from TheApi import api
@@ -457,9 +457,9 @@ print(result)
 #### Expected Output
 
 ```text
-He who knows that enough is enough will always have enough.
+Time stays long enough for anyone who will use it.
 
-author - Laozi
+author - Leonardo da Vinci
 ```
 
 ### 18. Random Word
@@ -480,7 +480,7 @@ print(result)
 #### Expected Output
 
 ```text
-riffs
+readableness
 ```
 
 ### 19. Riddle
@@ -501,7 +501,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': 'How do you make “one”disappear?', 'answer': 'Add a “g”to make it “gone”or an “n”to make it “none“!'}
+{'riddle': 'Whoever makes it, tells it not. Whoever takes it, knows it not. Whoever knows it, wants it not. What is it?', 'answer': 'they are fake Counterfeit money'}
 ```
 
 ### 20. Stackoverflow Search
@@ -540,28 +540,27 @@ Uploads an image to https://envs.sh.
 
 **Args:**
   - **file_path (Union[str, bytes, BytesIO])**: The image file to upload.
-  - Can be a file path (str), binary data (bytes), or a BytesIO object.
+    Can be a file path (str), binary data (bytes), or a BytesIO object.
 
 **Returns:**
   - **str**: The URL or confirmation message of the uploaded image if the upload is successful.
-  - Returns "Unexpected response format" if the response format is not as expected.
+    Returns "Unexpected response format" if the response format is not as expected.
 
 **Raises:**
   - **ValueError**: If the file is not found, the input type is invalid,
-  - or the upload request fails.
+    or the upload request fails.
 
 ```python
 from TheApi import api
 
-result = await api.upload_image(file_path='Pokemon')
+result = await api.upload_image(file_path='file/to/upload')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-# Error:
-File not found: 'Pokemon' - Ensure the file path is correct.
+You will get a URL
 ```
 
 ### 22. Wikipedia
@@ -574,10 +573,10 @@ Searches Wikipedia for a given query and retrieves the top result's summary, URL
 
 **Returns:**
   - **dict**: A dictionary containing information about the top search result, with keys:
-  - - title (str): The title of the Wikipedia article.
-  - - summary (str): A brief summary of the article's content.
-  - - url (str): The URL link to the full Wikipedia article.
-  - - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
+    - title (str): The title of the Wikipedia article.
+    - summary (str): A brief summary of the article's content.
+    - url (str): The URL link to the full Wikipedia article.
+    - image_url (str): The URL of the article's thumbnail image, or "No image available" if none exists.
 
 **Description**:
 If no results are found, returns a dictionary with an "error" key.
@@ -616,7 +615,7 @@ print(result)
 #### Expected Output
 
 ```text
-['obsesses', 'vagotomy', 'epimeres', 'chisel', 'portered']
+['sulfinyl', 'couloir', 'rebops', 'treacherousness', 'flamelike']
 ```
 
 ### 24. Write
@@ -626,7 +625,7 @@ Creates an image with text written on it, using a predefined template and font, 
 
 **Args:**
   - **text (str)**: The text to be written on the image. Text exceeding 55 characters
-  - per line will be wrapped, with up to 25 lines displayed.
+    per line will be wrapped, with up to 25 lines displayed.
 
 **Returns:**
   - **str**: The URL of the uploaded image.
@@ -644,7 +643,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_ZvqCZLi8.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_qZowlTfO.jpg
 ```
 
 
