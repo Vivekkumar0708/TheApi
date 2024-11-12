@@ -101,7 +101,7 @@ async def generate_api_status(methods):
                 elif param.annotation is int:
                     params.append(f"{param.name}=5")
                 else:
-                    params.append(f"{param.name}='example_value'")
+                    params.append(f"{param.name}='Pokemon'")
 
             status, result = await test_method(
                 method, *[eval(param.split("=")[1]) for param in params]
