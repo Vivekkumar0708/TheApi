@@ -18,7 +18,6 @@ async def test_method(method, *args):
         status = "❌"
         return status, str(e)
 
-
 def format_docstring(docstring):
     lines = docstring.splitlines()
     formatted_lines = []
@@ -29,29 +28,26 @@ def format_docstring(docstring):
         stripped_line = line.strip()
 
         if stripped_line in ["Args:", "Returns:", "Raises:"]:
-            # Section header without bullet
             formatted_lines.append(f"**{stripped_line}**")
             in_section = True
             nested_item = False
         elif in_section and line.startswith("    "):
-            if stripped_line.startswith("-"):
-                # Additional indentation for nested list items
+            parts = stripped_line.split(": ", 1)
+            if len(parts) == 2 and not parts[0].startswith("-"):
+                # Bold only the argument name
+                formatted_lines.append(f"  - **{parts[0]}**: {parts[1]}")
+            elif nested_item:
+                # Keep items aligned within nested structure
                 formatted_lines.append(f"    {stripped_line}")
-                nested_item = True
             else:
-                if nested_item:
-                    # Keep items aligned within nested structure
-                    formatted_lines.append(f"    {stripped_line}")
-                else:
-                    # Indented bullet for primary items
-                    formatted_lines.append(f"  - {stripped_line}")
+                # Indented bullet for primary items
+                formatted_lines.append(f"  - {stripped_line}")
                 nested_item = False
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
         else:
             if formatted_lines and formatted_lines[-1].startswith("**Description**"):
-                # Append to description line if already exists
                 formatted_lines[-1] += f" {stripped_line}"
             else:
                 formatted_lines.append(f"**Description**:\n{stripped_line}")
@@ -59,7 +55,6 @@ def format_docstring(docstring):
             nested_item = False
 
     return "\n".join(formatted_lines)
-
 
 async def generate_api_status(methods):
     function_statuses = []
