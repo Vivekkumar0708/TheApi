@@ -28,13 +28,13 @@ Below, we’ll cover each function, providing examples and expected results so y
 | [7. Fox](#7-fox) | ✅
 | [8. Gen Hashtag](#8-gen-hashtag) | ✅
 | [9. Get Advice](#9-get-advice) | ✅
-| [10. Get Hindi Jokes](#10-get-hindi-jokes) | ❌
+| [10. Get Hindi Jokes](#10-get-hindi-jokes) | ✅
 | [11. Get Jokes](#11-get-jokes) | ✅
 | [12. Get Uselessfact](#12-get-uselessfact) | ✅
 | [13. Github Search](#13-github-search) | ✅
 | [14. Hindi Quote](#14-hindi-quote) | ✅
 | [15. Meme](#15-meme) | ✅
-| [16. Pypi](#16-pypi) | ❌
+| [16. Pypi](#16-pypi) | ✅
 | [17. Quote](#17-quote) | ✅
 | [18. Random Word](#18-random-word) | ✅
 | [19. Riddle](#19-riddle) | ✅
@@ -62,14 +62,14 @@ Searches Bing for images based on a query and retrieves image URLs.
 ```python
 from TheApi import api
 
-result = await api.bing_image(query='example_value', limit=3)
+result = await api.bing_image(query='Pokemon', limit=3)
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-['https://www.smallbusinesscoach.org/wp-content/uploads/2021/03/list-of-values.jpg', 'https://i.pinimg.com/originals/70/40/aa/7040aa3337b9875d1e975e8c94c179cf.jpg', 'https://versoriaonline.com/wp-content/uploads/Personal-Values-Examples.jpeg']
+['https://images5.alphacoders.com/130/thumb-1920-1308338.jpg', 'http://www.animextremist.com/imagenes/pokemon/pokemon103.jpg', 'http://www.animextremist.com/imagenes/pokemon/pokemon97.jpg']
 ```
 
 ### 2. Blackpink
@@ -90,14 +90,14 @@ Creates a stylized "Blackpink"-themed image with custom text, color, and optiona
 ```python
 from TheApi import api
 
-result = await api.blackpink(query='example_value', color='#ff94e0', border_color=None)
+result = await api.blackpink(query='Pokemon', color='#ff94e0', border_color=None)
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_gS0l2veF.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_DIqsTxJc.jpg
 ```
 
 ### 3. Carbon
@@ -114,14 +114,14 @@ Generates a code snippet image using the Carbon API, saves it to the downloads f
 ```python
 from TheApi import api
 
-result = await api.carbon(query='example_value')
+result = await api.carbon(query='Pokemon')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_iLwSoC7U.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_oINl6wUI.png
 ```
 
 ### 4. Cat
@@ -142,7 +142,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/9bo.jpg
+https://cdn2.thecatapi.com/images/d2m.jpg
 ```
 
 ### 5. Chatgpt
@@ -159,7 +159,7 @@ Sends a query to the ChatGPT API and retrieves the response.
 ```python
 from TheApi import api
 
-result = await api.chatgpt(query='example_value')
+result = await api.chatgpt(query='Pokemon')
 print(result)
 ```
 
@@ -167,7 +167,7 @@ print(result)
 
 ```text
 # Error:
-Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=example_value&model=gpt-4o'
+Request failed: 400, message='Bad Request', url='https://chatwithai.codesearch.workers.dev/?chat=Pokemon&model=gpt-4o'
 ```
 
 ### 6. Dog
@@ -188,7 +188,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/e2032897-2617-4963-be00-947e5b9afda6.jpg
+https://random.dog/5cd73551-c42b-4c0f-bd80-634998e9a128.jpg
 ```
 
 ### 7. Fox
@@ -209,7 +209,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=116
+https://randomfox.ca/?i=99
 ```
 
 ### 8. Gen Hashtag
@@ -228,7 +228,7 @@ Generates hashtags based on a given keyword.
 ```python
 from TheApi import api
 
-result = await api.gen_hashtag(text='example_value', similar=False)
+result = await api.gen_hashtag(text='Pokemon', similar=False)
 print(result)
 ```
 
@@ -256,7 +256,7 @@ print(result)
 #### Expected Output
 
 ```text
-The best nights out are when people around you are simply having fun.
+Respect other people's opinions, even when they differ from your own.
 ```
 
 ### 10. Get Hindi Jokes
@@ -277,7 +277,7 @@ print(result)
 #### Expected Output
 
 ```text
-'status'
+आज online तथा विविध app के वजह से लोग प्रत्यक्ष ना मिलते हुए एक आभासी जीवन जी रहे है जो रमी खेलने के बहाने मिलते थे वह भी आज कल रमी app द्वारा ही खेलते है इसलिए मैं दारु पीने के बहाने मिलने वाले लोगों का आदर करता हूँ मिल बैठने की संस्कृती इन्हीं लोगों ने जिंदा रखी है 😆🤣😋😉
 ```
 
 ### 11. Get Jokes
@@ -301,7 +301,7 @@ print(result)
 #### Expected Output
 
 ```text
-I bought some shoes from a drug dealer. I don't know what he laced them with, but I was tripping all day!
+The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.
 ```
 
 ### 12. Get Uselessfact
@@ -322,7 +322,7 @@ print(result)
 #### Expected Output
 
 ```text
-Any free-moving liquid in outer space will form itself into a sphere, because of its surface tension.
+Crocodiles and alligators are surprisingly fast on land.  Although they are rapid, they are not agile.  So, if being chased by one, run in a zigzag line to lose him or her.
 ```
 
 ### 13. Github Search
@@ -350,14 +350,14 @@ Defaults to "repositories". max_results (int, optional): The maximum number of r
 ```python
 from TheApi import api
 
-result = await api.github_search(query='example_value', search_type='repositories', max_results=3)
+result = await api.github_search(query='Pokemon', search_type='repositories', max_results=3)
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-[{'name': 'spring-data-keyvalue-examples', 'full_name': 'spring-attic/spring-data-keyvalue-examples', 'description': 'Examples using Spring Data Key Values features', 'url': 'https://github.com/spring-attic/spring-data-keyvalue-examples', 'language': 'XSLT', 'stargazers_count': 436, 'forks_count': 318}, {'name': 'acf-dynamic-ajax-select-example', 'full_name': 'Hube2/acf-dynamic-ajax-select-example', 'description': 'Examples of dynamically loading values with AJAX based on other fields', 'url': 'https://github.com/Hube2/acf-dynamic-ajax-select-example', 'language': 'PHP', 'stargazers_count': 183, 'forks_count': 56}, {'name': 'key-value-example-app', 'full_name': 'EOSIO/key-value-example-app', 'description': 'An example app for using the key value database feature new to 2.1 of EOSIO.', 'url': 'https://github.com/EOSIO/key-value-example-app', 'language': 'TypeScript', 'stargazers_count': 11, 'forks_count': 16}]
+[{'name': 'PokemonGo-Map', 'full_name': 'AHAAAAAAA/PokemonGo-Map', 'description': '🌏 Live visualization of all the pokemon in your area... and more! (shutdown)', 'url': 'https://github.com/AHAAAAAAA/PokemonGo-Map', 'language': None, 'stargazers_count': 7529, 'forks_count': 2815}, {'name': 'pokemon-showdown', 'full_name': 'smogon/pokemon-showdown', 'description': 'Pokémon battle simulator.', 'url': 'https://github.com/smogon/pokemon-showdown', 'language': 'TypeScript', 'stargazers_count': 4790, 'forks_count': 2796}, {'name': 'PokemonGo-Bot', 'full_name': 'PokemonGoF/PokemonGo-Bot', 'description': 'The Pokemon Go Bot, baking with community.', 'url': 'https://github.com/PokemonGoF/PokemonGo-Bot', 'language': 'Python', 'stargazers_count': 3870, 'forks_count': 1543}]
 ```
 
 ### 14. Hindi Quote
@@ -378,7 +378,7 @@ print(result)
 #### Expected Output
 
 ```text
-लोग आपको नहीं आपके अच्छे वक़्त की अहमियत देते हैं..
+वसीयत अपने नाम लिखने से कुछ नही होता, ये तो उड़ान तय करती है कि आसमान किसका होगा।
 ```
 
 ### 15. Meme
@@ -399,7 +399,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/iqnolxv1130e1.png?width=960&crop=smart&auto=webp&s=aac306505d37c7dbed297674f39e10973ef8ff18
+https://preview.redd.it/u8xhz3diec0e1.png?width=1080&crop=smart&auto=webp&s=6ed236965692ded215c8fe25e66672093582a7f4
 ```
 
 ### 16. Pypi
@@ -429,15 +429,14 @@ Retrieves metadata information about a specified Python package from the PyPI AP
 ```python
 from TheApi import api
 
-result = await api.pypi(package_name='example_value')
+result = await api.pypi(package_name='Pokemon')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-# Error:
-Request failed: 404, message='Not Found', url='https://pypi.org/pypi/example_value/json'
+{'name': 'pokemon', 'version': '0.36', 'summary': 'ascii database of pokemon... in Python!', 'author': 'Vanessa Sochat', 'author_email': 'vsoch@noreply.github.users.com', 'license': 'LICENSE', 'home_page': 'https://github.com/vsoch/pokemon', 'package_url': 'https://pypi.org/project/pokemon/', 'requires_python': '', 'keywords': 'pokemon,avatar,ascii,gravatar', 'classifiers': [], 'project_urls': {'Homepage': 'https://github.com/vsoch/pokemon'}}
 ```
 
 ### 17. Quote
@@ -458,9 +457,9 @@ print(result)
 #### Expected Output
 
 ```text
-Never interrupt someone doing what you said couldn't be done.
+He who knows that enough is enough will always have enough.
 
-author - Amelia Earhart
+author - Laozi
 ```
 
 ### 18. Random Word
@@ -481,7 +480,7 @@ print(result)
 #### Expected Output
 
 ```text
-mothlike
+riffs
 ```
 
 ### 19. Riddle
@@ -502,7 +501,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': 'A girl is twice as old as her brother and half as old as her father. In 50 years, her brother will be half as old as his father. How old is the daughter now?', 'answer': '50 years old'}
+{'riddle': 'How do you make “one”disappear?', 'answer': 'Add a “g”to make it “gone”or an “n”to make it “none“!'}
 ```
 
 ### 20. Stackoverflow Search
@@ -524,14 +523,14 @@ Searches Stack Overflow for questions based on a query, returning results sorted
 ```python
 from TheApi import api
 
-result = await api.stackoverflow_search(query='example_value', max_results=3, sort_type='relevance')
+result = await api.stackoverflow_search(query='Pokemon', max_results=3, sort_type='relevance')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-[{'tags': ['ansible', 'jinja2', 'ansible-inventory'], 'owner': {'account_id': 15739154, 'reputation': 1, 'user_id': 11357149, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/fcdbe1843c2a7ee7f99f7e4b9edc18c8?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'JuliusHerrmann', 'link': 'https://stackoverflow.com/users/11357149/juliusherrmann'}, 'is_answered': False, 'view_count': 476, 'answer_count': 2, 'score': 0, 'last_activity_date': 1684593095, 'creation_date': 1684538741, 'question_id': 76292947, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/76292947/why-does-ansible-not-evaluate-my-jinja2-template-variables-inside-a-for-loop', 'title': 'Why does Ansible not evaluate my jinja2 template variables inside a for loop?'}, {'tags': ['html', 'coding-style', 'naming-conventions'], 'owner': {'account_id': 68634, 'reputation': 35109, 'user_id': 200145, 'user_type': 'registered', 'accept_rate': 89, 'profile_image': 'https://i.sstatic.net/k71xd.jpg?s=256', 'display_name': 'Emanuil Rusev', 'link': 'https://stackoverflow.com/users/200145/emanuil-rusev'}, 'is_answered': True, 'view_count': 91009, 'closed_date': 1437362381, 'accepted_answer_id': 10412839, 'answer_count': 8, 'score': 132, 'last_activity_date': 1512413085, 'creation_date': 1257694135, 'last_edit_date': 1422808004, 'question_id': 1696864, 'link': 'https://stackoverflow.com/questions/1696864/naming-class-and-id-html-attributes-dashes-vs-underlines', 'closed_reason': 'Opinion-based', 'title': 'Naming &quot;class&quot; and &quot;id&quot; HTML attributes - dashes vs. underlines'}, {'tags': ['runtime', 'netcdf', 'python-xarray'], 'owner': {'account_id': 11149227, 'reputation': 25, 'user_id': 8183011, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/9247ca7eb2124638de10cb0e5c3dceca?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'Conni', 'link': 'https://stackoverflow.com/users/8183011/conni'}, 'is_answered': True, 'view_count': 1169, 'accepted_answer_id': 69480221, 'answer_count': 1, 'score': 1, 'last_activity_date': 1666689229, 'creation_date': 1632939409, 'last_edit_date': 1666689229, 'question_id': 69381537, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/69381537/runtime-warning-when-opening-netcdf-file-xarray-unable-to-decode-time-axis', 'title': 'Runtime warning when opening netcdf file. Xarray unable to decode time axis'}]
+[{'tags': ['ios', 'flutter', 'dart'], 'owner': {'account_id': 19921816, 'reputation': 3, 'user_id': 14597469, 'user_type': 'registered', 'profile_image': 'https://lh6.googleusercontent.com/-aT6u2l_JT94/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclcxb94zp_q0Q2R8DQN7b6X3kgo6w/s96-c/photo.jpg?sz=256', 'display_name': 'Senem Sedef', 'link': 'https://stackoverflow.com/users/14597469/senem-sedef'}, 'is_answered': False, 'view_count': 117, 'answer_count': 0, 'score': 0, 'last_activity_date': 1701515081, 'creation_date': 1622231772, 'last_edit_date': 1701515081, 'question_id': 67744802, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/67744802/the-getter-pokemon-was-called-on-null-receiver-null-tried-calling-pokemon', 'title': 'The getter &#39;pokemon&#39; was called on null. Receiver: null Tried calling: pokemon'}, {'tags': ['reactjs', 'random', 'axios'], 'owner': {'account_id': 17931576, 'reputation': 1, 'user_id': 13028884, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/7ebcdd2f784bca5dc54a1a0e17354f86?s=256&d=identicon&r=PG&f=y&so-version=2', 'display_name': 'GieGie', 'link': 'https://stackoverflow.com/users/13028884/giegie'}, 'is_answered': False, 'view_count': 1967, 'answer_count': 2, 'score': 0, 'last_activity_date': 1652730812, 'creation_date': 1642222168, 'last_edit_date': 1642223800, 'question_id': 70718940, 'content_license': 'CC BY-SA 4.0', 'link': 'https://stackoverflow.com/questions/70718940/pokemon-api-request-generate-5-pok%c3%a9mon-at-a-time', 'title': 'Pokemon API request generate 5 Pok&#233;mon at a time'}, {'tags': ['java'], 'owner': {'account_id': 919945, 'reputation': 43, 'user_id': 951797, 'user_type': 'registered', 'profile_image': 'https://www.gravatar.com/avatar/26b06d5d95992fa3780383abe5f49a3d?s=256&d=identicon&r=PG', 'display_name': 'Brian', 'link': 'https://stackoverflow.com/users/951797/brian'}, 'is_answered': True, 'view_count': 32628, 'accepted_answer_id': 7942409, 'answer_count': 3, 'score': 3, 'last_activity_date': 1577442848, 'creation_date': 1319931614, 'question_id': 7942384, 'content_license': 'CC BY-SA 3.0', 'link': 'https://stackoverflow.com/questions/7942384/simple-java-pokemon-fight-simulator', 'title': 'Simple Java Pokemon Fight Simulator'}]
 ```
 
 ### 21. Upload Image
@@ -554,7 +553,7 @@ Uploads an image to https://envs.sh.
 ```python
 from TheApi import api
 
-result = await api.upload_image(file_path='example_value')
+result = await api.upload_image(file_path='Pokemon')
 print(result)
 ```
 
@@ -562,7 +561,7 @@ print(result)
 
 ```text
 # Error:
-File not found: 'example_value' - Ensure the file path is correct.
+File not found: 'Pokemon' - Ensure the file path is correct.
 ```
 
 ### 22. Wikipedia
@@ -586,14 +585,14 @@ If no results are found, returns a dictionary with an "error" key.
 ```python
 from TheApi import api
 
-result = await api.wikipedia(query='example_value')
+result = await api.wikipedia(query='Pokemon')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-{'title': 'Boundary value problem', 'summary': "In the study of differential equations, a boundary-value problem is a differential equation subjected to constraints called boundary conditions. A solution to a boundary value problem is a solution to the differential equation which also satisfies the boundary conditions.\nBoundary value problems arise in several branches of physics as any physical differential equation will have them. Problems involving the wave equation, such as the determination of normal modes, are often stated as boundary value problems. A large class of important boundary value problems are the Sturm–Liouville problems. The analysis of these problems, in the linear case, involves the eigenfunctions of a differential operator.\nTo be useful in applications, a boundary value problem should be well posed.  This means that given the input to the problem there exists a unique solution, which depends continuously on the input.  Much theoretical work in the field of partial differential equations is devoted to proving that boundary value problems arising from scientific and engineering applications are in fact well-posed.\nAmong the earliest boundary value problems to be studied is the Dirichlet problem, of finding the harmonic functions (solutions to Laplace's equation); the solution was given by the Dirichlet's principle.\n\n", 'url': 'https://en.wikipedia.org/?curid=436779', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Boundary_value_problem-en.svg/500px-Boundary_value_problem-en.svg.png'}
+{'title': 'Pokémon', 'summary': 'Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media. The franchise takes place in a shared universe in which humans co-exist with creatures known as Pokémon, a large variety of species endowed with special powers. The franchise\'s target audience is children aged 5 to 12, but it is known to attract people of all ages.\nThe franchise originated as a pair of role-playing games developed by Game Freak, from an original concept by its founder, Satoshi Tajiri. Released on the Game Boy on February 27, 1996, the games became sleeper hits and were followed by manga series, a trading card game, and anime series and films. From 1998 to 2000, Pokémon was exported to the rest of the world, creating an unprecedented global phenomenon dubbed "Pokémania". By 2002, the craze had ended, after which Pokémon became a fixture in popular culture, with new products being released to this day. In the summer of 2016, the franchise spawned a second craze with the release of Pokémon Go, an augmented reality game developed by Niantic. Pokémon has since been estimated to be the world\'s highest-grossing media franchise and one of the best-selling video game franchises.\nPokémon has an uncommon ownership structure. Unlike most IPs, which are owned by one company, Pokémon is jointly owned by three: Nintendo, Game Freak, and Creatures. Game Freak develops the core series role-playing games, which are published by Nintendo exclusively for their consoles, while Creatures manages the trading card game and related merchandise, occasionally developing spin-off titles. The three companies established The Pokémon Company (TPC) in 1998 to manage the Pokémon property within Asia. The Pokémon anime series and films are co-owned by Shogakukan. Since 2009, The Pokémon Company International (TPCi), a subsidiary of TPC, has managed the franchise in all regions outside of Asia.', 'url': 'https://en.wikipedia.org/?curid=23745', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/500px-International_Pok%C3%A9mon_logo.svg.png'}
 ```
 
 ### 23. Words
@@ -617,7 +616,7 @@ print(result)
 #### Expected Output
 
 ```text
-['escharotic', 'unrighteous', 'qis', 'foxhunted', 'presignalled']
+['obsesses', 'vagotomy', 'epimeres', 'chisel', 'portered']
 ```
 
 ### 24. Write
@@ -638,14 +637,14 @@ Notes: A temporary image file is created, saved, and removed after uploading.
 ```python
 from TheApi import api
 
-result = await api.write(text='example_value')
+result = await api.write(text='Pokemon')
 print(result)
 ```
 
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_1HWdxFcy.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_ZvqCZLi8.jpg
 ```
 
 
