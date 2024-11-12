@@ -59,6 +59,7 @@ def format_docstring(docstring):
 
     return "\n".join(formatted_lines)
 
+
 async def generate_api_status(methods):
     function_statuses = []
     readme_content = []
@@ -85,7 +86,9 @@ async def generate_api_status(methods):
         if name == "upload_image":
             # Mark as working and prepare sample input for `upload_image`
             status = "✅"
-            params_str = ", ".join(f"{param}='file/to/upload'" for param in signature.parameters)
+            params_str = ", ".join(
+                f"{param}='file/to/upload'" for param in signature.parameters
+            )
             result = "You will get a URL"
 
             # Document the `upload_image` function in the README
@@ -148,6 +151,7 @@ async def generate_api_status(methods):
         function_count += 1
 
     return status_content, readme_content
+
 
 async def write_api_status_to_file(
     status_content,
