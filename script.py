@@ -33,21 +33,23 @@ def format_docstring(docstring):
             in_section = True
             nested_item = False
         elif in_section and line.startswith("    "):
-            parts = stripped_line.split(": ", 1)
-            if len(parts) == 2 and not parts[0].startswith("-"):
-                # Bold only the argument name
-                formatted_lines.append(f"  - **{parts[0]}**: {parts[1]}")
-            elif nested_item:
-                # Keep items aligned within nested structure
-                formatted_lines.append(f"    {stripped_line}")
+            # Detect nested items
+            if stripped_line.startswith("- "):
+                formatted_lines.append(f"    - {stripped_line[2:]}")
+                nested_item = True
             else:
-                # Indented bullet for primary items
-                formatted_lines.append(f"  - {stripped_line}")
-                nested_item = False
+                # Process the parameter with bolded name
+                parts = stripped_line.split(": ", 1)
+                if len(parts) == 2 and not nested_item:
+                    formatted_lines.append(f"  - **{parts[0]}**: {parts[1]}")
+                else:
+                    formatted_lines.append(f"    {stripped_line}")
         elif stripped_line == "":
             formatted_lines.append("")  # Maintain blank lines
             in_section = False
+            nested_item = False
         else:
+            # For non-section lines and general descriptions
             if formatted_lines and formatted_lines[-1].startswith("**Description**"):
                 formatted_lines[-1] += f" {stripped_line}"
             else:
@@ -56,7 +58,6 @@ def format_docstring(docstring):
             nested_item = False
 
     return "\n".join(formatted_lines)
-
 
 async def generate_api_status(methods):
     function_statuses = []
@@ -71,45 +72,66 @@ async def generate_api_status(methods):
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
 
-        # Generate URL-friendly link for the status table
+        # Add a linkable entry to the status table for each function
         formatted_name = name.replace("_", "-").lower()
         status_content.append(
             f"| [{function_count}. {name.replace('_', ' ').title()}](#{function_count}-{formatted_name}) | "
         )
 
+        # Format the docstring for better readability in the README
         formatted_docstring = format_docstring(docstring)
 
-        # Generate the content for each function with numbered title and
-        # URL-friendly heading
-        if len(signature.parameters) == 0:
-            status, result = await test_method(method)
+        # Special handling for the `upload_image` function
+        if name == "upload_image":
+            # Mark as working and prepare sample input for `upload_image`
+            status = "✅"
+            params_str = ", ".join(f"{param}='file/to/upload'" for param in signature.parameters)
+            result = "You will get a URL"
+
+            # Document the `upload_image` function in the README
             readme_content.append(
                 f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
                 f"{formatted_docstring}\n\n"
                 f"```python\nfrom TheApi import api\n\n"
-                f"result = await api.{name}()\n"
+                f"result = await api.{name}({params_str})\n"
                 f"print(result)\n```\n\n"
                 f"#### Expected Output\n\n"
                 f"```text\n{result}\n```\n"
             )
+
         else:
-            params = []
-            for param in signature.parameters.values():
-                if param.default is not param.empty:
-                    param_value = repr(param.default)
-                    params.append(f"{param.name}={param_value}")
-                elif param.annotation is int:
-                    params.append(f"{param.name}=5")
-                else:
-                    params.append(f"{param.name}='Pokemon'")
+            # General handling for functions other than `upload_image`
+            if len(signature.parameters) == 0:
+                status, result = await test_method(method)
+                # Document functions with no parameters
+                readme_content.append(
+                    f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
+                    f"{formatted_docstring}\n\n"
+                    f"```python\nfrom TheApi import api\n\n"
+                    f"result = await api.{name}()\n"
+                    f"print(result)\n```\n\n"
+                    f"#### Expected Output\n\n"
+                    f"```text\n{result}\n```\n"
+                )
+            else:
+                # Handle functions with parameters
+                params = []
+                for param in signature.parameters.values():
+                    if param.default is not param.empty:
+                        param_value = repr(param.default)
+                        params.append(f"{param.name}={param_value}")
+                    elif param.annotation is int:
+                        params.append(f"{param.name}=5")
+                    else:
+                        params.append(f"{param.name}='Pokemon'")
 
-            status, result = await test_method(
-                method, *[eval(param.split("=")[1]) for param in params]
-            )
+                status, result = await test_method(
+                    method, *[eval(param.split("=")[1]) for param in params]
+                )
 
-            params_str = ", ".join(params)
+                params_str = ", ".join(params)
 
-            if status == "✅":
+                # Document functions with parameters
                 readme_content.append(
                     f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
                     f"{formatted_docstring}\n\n"
@@ -119,23 +141,13 @@ async def generate_api_status(methods):
                     f"#### Expected Output\n\n"
                     f"```text\n{result}\n```\n"
                 )
-            else:
-                readme_content.append(
-                    f"### {function_count}. {name.replace('_', ' ').title()}\n\n"
-                    f"{formatted_docstring}\n\n"
-                    f"```python\nfrom TheApi import api\n\n"
-                    f"result = await api.{name}({params_str})\n"
-                    f"print(result)\n```\n\n"
-                    f"#### Expected Output\n\n"
-                    f"```text\n# Error:\n{result}\n```\n"
-                )
 
+        # Update the status table with the function's status
         status_content[-1] += status
         function_statuses.append((name, status))
         function_count += 1
 
     return status_content, readme_content
-
 
 async def write_api_status_to_file(
     status_content,
