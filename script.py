@@ -19,10 +19,15 @@ When you run this, the README will get an API reference with examples and status
 
 import asyncio
 import inspect
+
 import aiofiles
+
 from TheApi import api
 
+
 # Helper function to test each API method
+
+
 async def test_method(method, *args):
     try:
         if inspect.iscoroutinefunction(method):
@@ -35,7 +40,10 @@ async def test_method(method, *args):
         status = "❌"  # Mark as failed
         return status, str(e)
 
+
 # Formats docstring into a readable markdown format for README
+
+
 def format_docstring(docstring):
     lines = docstring.splitlines()
     formatted_lines = []
@@ -76,7 +84,10 @@ def format_docstring(docstring):
 
     return "\n".join(formatted_lines)
 
+
 # Main function to generate API status table and function documentation
+
+
 async def generate_api_status(methods):
     function_statuses = []
     readme_content = []
@@ -90,7 +101,7 @@ async def generate_api_status(methods):
         signature = inspect.signature(method)
         docstring = inspect.getdoc(method) or "No description available."
         formatted_name = name.replace("_", "-").lower()
-        
+
         # Create a status table entry with a link
         status_content.append(
             f"| [{function_count}. {name.replace('_', ' ').title()}](#{function_count}-{formatted_name}) | "
@@ -167,7 +178,10 @@ async def generate_api_status(methods):
 
     return status_content, readme_content
 
+
 # Writes the API status and documentation to README.md
+
+
 async def write_api_status_to_file(
     status_content,
     readme_content,
@@ -212,13 +226,17 @@ async def write_api_status_to_file(
     async with aiofiles.open(readme_file, "w") as f:
         await f.write(updated_content)
 
+
 # Main function to run the script
+
+
 async def main():
     methods = inspect.getmembers(
         api, predicate=lambda m: inspect.ismethod(m) or inspect.isfunction(m)
     )
     status_content, readme_content = await generate_api_status(methods)
     await write_api_status_to_file(status_content, readme_content)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
