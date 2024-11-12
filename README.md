@@ -69,7 +69,7 @@ print(result)
 #### Expected Output
 
 ```text
-['https://images5.alphacoders.com/130/thumb-1920-1308338.jpg', 'http://www.animextremist.com/imagenes/pokemon/pokemon103.jpg', 'http://www.animextremist.com/imagenes/pokemon/pokemon97.jpg']
+['https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/1200px-International_Pokémon_logo.svg.png', 'http://www.animextremist.com/imagenes/pokemon/pokemon103.jpg', 'https://images5.alphacoders.com/130/thumb-1920-1308338.jpg']
 ```
 
 ### 2. Blackpink
@@ -97,7 +97,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/blackpink_j6bMYD03.jpg
+/home/runner/work/TheApi/TheApi/downloads/blackpink_0lkrXSCS.jpg
 ```
 
 ### 3. Carbon
@@ -121,7 +121,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/carbon_Rfb8V90x.png
+/home/runner/work/TheApi/TheApi/downloads/carbon_uAPh04mr.png
 ```
 
 ### 4. Cat
@@ -142,7 +142,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://cdn2.thecatapi.com/images/7fq.jpg
+https://cdn2.thecatapi.com/images/f1.jpg
 ```
 
 ### 5. Chatgpt
@@ -187,7 +187,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://random.dog/1b5d7726-f401-4f35-aff5-3ec47f0bf47b.mp4
+https://random.dog/e3cc388e-5bff-488d-9202-67c360680422.JPG
 ```
 
 ### 7. Fox
@@ -208,7 +208,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://randomfox.ca/?i=112
+https://randomfox.ca/?i=98
 ```
 
 ### 8. Gen Hashtag
@@ -255,7 +255,7 @@ print(result)
 #### Expected Output
 
 ```text
-Eat food. Not too much, mostly plants.
+Don't wear clean trousers when walking your dog in the park.
 ```
 
 ### 10. Get Hindi Jokes
@@ -276,8 +276,7 @@ print(result)
 #### Expected Output
 
 ```text
-पप्पू की वाईफ रोमांटिक मूड मे थी पूरे बैड पर बाँहे फैला कर लेट गयी, और पप्पू से बोली कुछ समझे?   
-पप्पू- समझ गया आज तू पूरे बैड पर सोना चाहती है न डायन. 😆🤣😋😉
+लड़की गिफ्ट की दूकान में – काफी देर गिफ्ट देखने के बाद एक गिफ्ट की तरफ इशारा करते हुए पूछा…ये हँसती हुई चुड़ैल कितने की है ? ...दुकानदार- मैडम जी ये आईना है😃😃😃﻿
 ```
 
 ### 11. Get Jokes
@@ -301,7 +300,8 @@ print(result)
 #### Expected Output
 
 ```text
-The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.
+Have a great weekend!
+I hope your code behaves the same on Monday as it did on Friday.
 ```
 
 ### 12. Get Uselessfact
@@ -322,7 +322,7 @@ print(result)
 #### Expected Output
 
 ```text
-The three most recognized Western names in China are Jesus Christ, Richard Nixon, & Elvis Presley.
+A standard slinky measures 87 feet when stretched out.
 ```
 
 ### 13. Github Search
@@ -378,7 +378,7 @@ print(result)
 #### Expected Output
 
 ```text
-रो-रो के इश्क को ना तमाशा बनाईये जीने की आरज़ू है तो धोखे भी खाईये!
+समय के पास इतना समय नहीं कि आपको दोबारा समय दे सकें।
 ```
 
 ### 15. Meme
@@ -399,7 +399,7 @@ print(result)
 #### Expected Output
 
 ```text
-https://preview.redd.it/e9tltqzun30e1.png?width=320&crop=smart&auto=webp&s=ba450f6576c8eb906bc760288d979185053bfbaa
+https://preview.redd.it/yyalm99pec0e1.png?width=960&crop=smart&auto=webp&s=97f138b33a0eba13fa373ce54058f0a724768150
 ```
 
 ### 16. Pypi
@@ -457,9 +457,9 @@ print(result)
 #### Expected Output
 
 ```text
-Time stays long enough for anyone who will use it.
+In wisdom gathered over time I have found that every experience is a form of exploration.
 
-author - Leonardo da Vinci
+author - Ansel Adams
 ```
 
 ### 18. Random Word
@@ -480,7 +480,7 @@ print(result)
 #### Expected Output
 
 ```text
-readableness
+nonwovens
 ```
 
 ### 19. Riddle
@@ -501,7 +501,7 @@ print(result)
 #### Expected Output
 
 ```text
-{'riddle': 'Whoever makes it, tells it not. Whoever takes it, knows it not. Whoever knows it, wants it not. What is it?', 'answer': 'they are fake Counterfeit money'}
+{'riddle': 'A girl is twice as old as her brother and half as old as her father. In 50 years, her brother will be half as old as his father. How old is the daughter now?', 'answer': '50 years old'}
 ```
 
 ### 20. Stackoverflow Search
@@ -615,7 +615,7 @@ print(result)
 #### Expected Output
 
 ```text
-['sulfinyl', 'couloir', 'rebops', 'treacherousness', 'flamelike']
+['tackifies', 'shophars', 'commutated', 'galenite', 'dalapon']
 ```
 
 ### 24. Write
@@ -643,7 +643,7 @@ print(result)
 #### Expected Output
 
 ```text
-/home/runner/work/TheApi/TheApi/downloads/write_qZowlTfO.jpg
+/home/runner/work/TheApi/TheApi/downloads/write_Hkmw78yy.jpg
 ```
 
 
