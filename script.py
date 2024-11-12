@@ -18,6 +18,7 @@ async def test_method(method, *args):
         status = "❌"
         return status, str(e)
 
+
 def format_docstring(docstring):
     lines = docstring.splitlines()
     formatted_lines = []
@@ -55,6 +56,7 @@ def format_docstring(docstring):
             nested_item = False
 
     return "\n".join(formatted_lines)
+
 
 async def generate_api_status(methods):
     function_statuses = []
